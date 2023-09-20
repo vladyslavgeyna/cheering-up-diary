@@ -1,0 +1,54 @@
+@import '../../../assets/styles/variables.scss';
+
+.header {
+	height: 62.8px;
+	width: 100%;
+	position: fixed;
+	padding: 12px 0;
+	background-color: $primary-color;
+	color: #fff;
+	z-index: 50;
+}
+.navlink {
+	font-weight: 600;
+	font-size: 20px;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+.block {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+}
+.linksWrapper {
+	gap: 15px;
+	display: flex;
+	align-items: center;
+}
+.link {
+	transition: $transition;
+	border: 3px solid #fff;
+	color: $primary-color;
+	font-size: 20px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-weight: 600;
+	padding: 7px 12px;
+	background-color: #fff;
+	border-radius: $border-radius;
+	&:hover {
+		background-color: $primary-color;
+		color: #fff;
+	}
+	span {
+		font-size: 20px;
+		line-height: 20px;
+	}
+}
+.blockChild {
+	display: flex;
+	align-items: center;
+}
