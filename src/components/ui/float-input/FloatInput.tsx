@@ -3,11 +3,11 @@ import styles from './FloatInput.module.scss'
 
 const FloatInput: FC<{
 	label: string
-	type: React.HTMLInputTypeAttribute | undefined
-	onChange: React.ChangeEventHandler<HTMLInputElement> | undefined
-	value: string | number | readonly string[] | undefined
-	required: boolean | undefined
-	className: string | undefined
+	type?: React.HTMLInputTypeAttribute | undefined
+	onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined
+	value?: string | number | readonly string[] | undefined
+	required?: boolean | undefined
+	className?: string | undefined
 }> = ({ label, type, onChange, value, required, className }) => {
 	return (
 		<>
