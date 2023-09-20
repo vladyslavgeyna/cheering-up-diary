@@ -80,3 +80,15 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
 	transition: background-color 5000s ease-in-out 0s;
 }
+.wrapper {
+	min-height: 100vh;
+	min-width: 320px;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+main.main {
+	margin-top: 64px;
+	padding: 25px 0;
+	flex: 1 1 auto;
+}
