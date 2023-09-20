@@ -1,6 +1,7 @@
 'use client'
-import { useState } from 'react'
+import { FC, useState } from 'react'
 import FloatInput from '../ui/float-input/FloatInput'
+import PrimaryButton from '../ui/primary-button/PrimaryButton'
 import PrimarySelect from '../ui/primary-select/PrimarySelect'
 import PrimaryTextarea from '../ui/primary-textarea/PrimaryTextarea'
 import styles from './CreateNoteForm.module.scss'
@@ -10,13 +11,15 @@ export enum NoteCategory {
 	'Positive moment',
 }
 
-const CreateNoteForm = () => {
+const CreateNoteForm: FC<{
+	onSubmit?: React.FormEventHandler<HTMLFormElement> | undefined
+}> = ({ onSubmit }) => {
 	const [title, setTitle] = useState('')
 	const [text, setText] = useState('')
 	const [category, setCategory] = useState('')
 
 	return (
-		<form className={styles.form} method='post'>
+		<form onSubmit={onSubmit} className={styles.form} method='post'>
 			<div className={styles.formItem}>
 				<FloatInput
 					value={title}
@@ -46,6 +49,7 @@ const CreateNoteForm = () => {
 					</option>
 				</PrimarySelect>
 			</div>
+			<PrimaryButton type='submit'>Create</PrimaryButton>
 		</form>
 	)
 }
