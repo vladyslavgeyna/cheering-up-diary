@@ -1,14 +1,24 @@
 import { FC } from 'react'
+import { UseFormRegisterReturn } from 'react-hook-form'
 import styles from './PrimaryInput.module.scss'
 
 const PrimaryInput: FC<{
-	type?: React.HTMLInputTypeAttribute | undefined
-	onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined
-	value?: string | number | readonly string[] | undefined
-	required?: boolean | undefined
-	className?: string | undefined
-	placeholder?: string | undefined
-}> = ({ type, onChange, value, required = false, className, placeholder }) => {
+	type: React.HTMLInputTypeAttribute
+	onChange?: React.ChangeEventHandler<HTMLInputElement>
+	value?: string | number | readonly string[]
+	required?: boolean
+	className?: string
+	placeholder?: string
+	register?: UseFormRegisterReturn<string>
+}> = ({
+	type,
+	onChange,
+	value,
+	register,
+	required = false,
+	className,
+	placeholder,
+}) => {
 	return (
 		<>
 			<input
@@ -18,6 +28,7 @@ const PrimaryInput: FC<{
 				className={`${styles.input} ${className || ''}`}
 				type={type}
 				placeholder={placeholder}
+				{...register}
 			/>
 		</>
 	)

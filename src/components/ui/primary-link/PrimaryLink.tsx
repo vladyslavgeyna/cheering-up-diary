@@ -4,7 +4,7 @@ import styles from './PrimaryLink.module.scss'
 
 const PrimaryLink: FC<
 	PropsWithChildren<{
-		className?: string | undefined
+		className?: string
 		href: string
 	}>
 > = ({ children, className, href }) => {
