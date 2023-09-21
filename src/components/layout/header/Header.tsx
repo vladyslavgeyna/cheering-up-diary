@@ -13,8 +13,10 @@ const Header = () => {
 						</Link>
 						<div className={styles.blockChild}>
 							<div className={styles.linksWrapper}>
-								<Link className={styles.link} href={'/'}>
-									<span>Add new event</span>
+								<Link
+									className={styles.link}
+									href={'/note/create'}>
+									<span>Add new note</span>
 								</Link>
 							</div>
 						</div>
