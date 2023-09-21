@@ -1,0 +1,12 @@
+.form {
+	max-width: 500px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+.formLabel {
+	font-weight: 600;
+	padding-left: 20px;
+	margin-bottom: 5px;
+}
