@@ -5,7 +5,7 @@ import PrimaryButton from '@/components/ui/primary-button/PrimaryButton'
 import { NoteCategory } from '@/types/note-category.enum'
 import { NoteProps } from '@/types/note-props.interface'
 
-const StartPageNote: React.FC<NoteProps> = ({ note, onDelete }) => {
+const NoteItem: React.FC<NoteProps> = ({ note, onDelete }) => {
 	const handleDetailsClick = () => {
 		// Логіка для перегляду деталей нотатки
 		console.log('Перегляд деталей нотатки:', note.title)
@@ -48,4 +48,4 @@ const StartPageNote: React.FC<NoteProps> = ({ note, onDelete }) => {
 	)
 }
 
-export default StartPageNote
+export default NoteItem
