@@ -1,6 +1,6 @@
-'use-client'
+'use client'
 
-import styles from '@/components/note-list/NoteList.module.scss'
+import styles from '@/components/notes-list/NotesList.module.scss'
 import { NotesListProps } from '@/types/note-list-props.interface'
 import NoteItem from '../note-item/NoteItem'
 

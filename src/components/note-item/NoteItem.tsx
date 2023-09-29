@@ -1,6 +1,6 @@
 'use client'
 
-import styles from '@/components/start-page-note/StartPageNote.module.scss'
+import styles from '@/components/note-item/NoteItem.module.scss'
 import PrimaryButton from '@/components/ui/primary-button/PrimaryButton'
 import { NoteCategory } from '@/types/note-category.enum'
 import { NoteProps } from '@/types/note-props.interface'
@@ -29,7 +29,7 @@ const NoteItem: React.FC<NoteProps> = ({ note, onDelete }) => {
 				</span>
 				<span className={styles.noteTime}>
 					{note.dateOfCreation.toLocaleTimeString()},{' '}
-					{note.dateOfCreation.toLocaleDateString()}
+					{note.dateOfCreation.toLocaleTimeString()}
 				</span>
 			</div>
 			<p className={styles.noteContent}>{note.text}</p>
