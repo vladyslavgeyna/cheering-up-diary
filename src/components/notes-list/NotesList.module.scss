@@ -1,8 +1,13 @@
-.notes-wrapper {
+.notesWrapper {
 	margin: 0 auto;
-	width: 70%;
+	width: 100%;
 	display: flex;
 	gap: 20px;
 	flex-wrap: wrap;
-	justify-content: center;
+	justify-content: left;
+}
+
+.emptyList {
+	text-align: center;
+	font-size: 18px;
 }

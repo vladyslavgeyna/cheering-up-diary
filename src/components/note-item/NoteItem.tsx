@@ -1,9 +1,9 @@
 'use client'
 
 import styles from '@/components/note-item/NoteItem.module.scss'
-import PrimaryButton from '@/components/ui/primary-button/PrimaryButton'
 import { NoteCategory } from '@/types/note-category.enum'
 import { NoteProps } from '@/types/note-props.interface'
+import Button from './subcomponents/NoteButton'
 
 const NoteItem: React.FC<NoteProps> = ({ note, onDelete }) => {
 	const handleDetailsClick = () => {
@@ -34,15 +34,15 @@ const NoteItem: React.FC<NoteProps> = ({ note, onDelete }) => {
 			</div>
 			<p className={styles.noteContent}>{note.text}</p>
 			<div className={styles.noteActions}>
-				<PrimaryButton type='button' className={styles.detailsButton}>
-					Деталі
-				</PrimaryButton>
-				<PrimaryButton type='button' className={styles.editButton}>
-					Редагувати
-				</PrimaryButton>
-				<PrimaryButton type='button' className={styles.deleteButton}>
-					Видалити
-				</PrimaryButton>
+				<Button color='blue' onClick={handleDetailsClick}>
+					Details
+				</Button>
+				<Button color='green' onClick={handleEditClick}>
+					Edit
+				</Button>
+				<Button color='red' onClick={handleDeleteClick}>
+					Delete
+				</Button>
 			</div>
 		</div>
 	)

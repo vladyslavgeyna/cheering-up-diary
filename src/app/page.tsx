@@ -24,7 +24,37 @@ export default function Home() {
 			const initialNotes: INote[] = [
 				{
 					title: 'Перша нотатка',
-					text: 'Це вміст першої нотатки...',
+					text: 'Це вміст першої нотатки 131313131313111111111111111...',
+					dateOfCreation: new Date(),
+					category: NoteCategory.Thanksgiving,
+				},
+				{
+					title: 'Перша нотатка',
+					text: 'Це вміст першої нотатки 131313131313111111111111111...',
+					dateOfCreation: new Date(),
+					category: NoteCategory.Thanksgiving,
+				},
+				{
+					title: 'Перша нотатка',
+					text: 'Це вміст першої нотатки 131313131313111111111111111...',
+					dateOfCreation: new Date(),
+					category: NoteCategory.Thanksgiving,
+				},
+				{
+					title: 'Перша нотатка',
+					text: 'Це вміст першої нотатки 131313131313111111111111111...',
+					dateOfCreation: new Date(),
+					category: NoteCategory.Thanksgiving,
+				},
+				{
+					title: 'Перша нотатка',
+					text: 'Це вміст першої нотатки 131313131313111111111111111...',
+					dateOfCreation: new Date(),
+					category: NoteCategory.Thanksgiving,
+				},
+				{
+					title: 'Перша нотатка',
+					text: 'Це вміст першої нотатки 131313131313111111111111111...',
 					dateOfCreation: new Date(),
 					category: NoteCategory.Thanksgiving,
 				},
