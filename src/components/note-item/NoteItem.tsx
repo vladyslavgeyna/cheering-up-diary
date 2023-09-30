@@ -23,12 +23,14 @@ const NoteItem: React.FC<NoteProps> = ({ note, onDelete }) => {
 	return (
 		<div className={styles.noteCard}>
 			<div className={styles.noteHeader}>
-				<h2 className={styles.noteTitle}>{note.title}</h2>
-				<span className={styles.noteCategory}>
-					{NoteCategory[note.category]}
-				</span>
+				<div>
+					<h2 className={styles.noteTitle}>{note.title}</h2>
+					<span className={styles.noteCategory}>
+						{NoteCategory[note.category]}
+					</span>
+				</div>
 				<span className={styles.noteTime}>
-					{note.dateOfCreation.toLocaleTimeString()},{' '}
+					{note.dateOfCreation.toLocaleDateString()} at{' '}
 					{note.dateOfCreation.toLocaleTimeString()}
 				</span>
 			</div>

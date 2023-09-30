@@ -11,6 +11,7 @@ export default function Home() {
 	const [notes, setNotes] = useState<INote[]>([])
 
 	useEffect(() => {
+		// this part will be refactored in lab3
 		const storedNotes = localStorage.getItem('notes')
 		if (storedNotes) {
 			const parsedNotes: INote[] = JSON.parse(storedNotes)
@@ -23,38 +24,8 @@ export default function Home() {
 		} else {
 			const initialNotes: INote[] = [
 				{
-					title: 'Перша нотатка',
-					text: 'Це вміст першої нотатки 131313131313111111111111111...',
-					dateOfCreation: new Date(),
-					category: NoteCategory.Thanksgiving,
-				},
-				{
-					title: 'Перша нотатка',
-					text: 'Це вміст першої нотатки 131313131313111111111111111...',
-					dateOfCreation: new Date(),
-					category: NoteCategory.Thanksgiving,
-				},
-				{
-					title: 'Перша нотатка',
-					text: 'Це вміст першої нотатки 131313131313111111111111111...',
-					dateOfCreation: new Date(),
-					category: NoteCategory.Thanksgiving,
-				},
-				{
-					title: 'Перша нотатка',
-					text: 'Це вміст першої нотатки 131313131313111111111111111...',
-					dateOfCreation: new Date(),
-					category: NoteCategory.Thanksgiving,
-				},
-				{
-					title: 'Перша нотатка',
-					text: 'Це вміст першої нотатки 131313131313111111111111111...',
-					dateOfCreation: new Date(),
-					category: NoteCategory.Thanksgiving,
-				},
-				{
-					title: 'Перша нотатка',
-					text: 'Це вміст першої нотатки 131313131313111111111111111...',
+					title: 'First note',
+					text: 'deserunt mollit anim id est laborum....',
 					dateOfCreation: new Date(),
 					category: NoteCategory.Thanksgiving,
 				},
