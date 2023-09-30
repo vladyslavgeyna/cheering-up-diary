@@ -6,6 +6,10 @@ import { NoteProps } from '@/types/note-props.interface'
 import Button from './subcomponents/NoteButton'
 
 const NoteItem: React.FC<NoteProps> = ({ note, onDelete }) => {
+	if (!note) {
+		return null
+	}
+
 	const handleDetailsClick = () => {
 		// Логіка для перегляду деталей нотатки
 		console.log('Перегляд деталей нотатки:', note.title)
