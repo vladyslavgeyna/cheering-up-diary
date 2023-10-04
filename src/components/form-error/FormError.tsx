@@ -5,11 +5,9 @@ const FormError: FC<{ message?: string; className?: string }> = ({
 	message,
 	className,
 }) => {
-	return (
-		message && (
-			<p className={`${styles.error} ${className || ''}`}>{message}</p>
-		)
-	)
+	return message ? (
+		<p className={`${styles.error} ${className || ''}`}>{message}</p>
+	) : null
 }
 
 export default FormError
