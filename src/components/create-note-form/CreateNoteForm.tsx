@@ -9,9 +9,11 @@ import {
 	getEnumMinValue,
 } from '@/utils/enum.utils'
 import { getLocalStorageItemAsync } from '@/utils/utils'
+import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import FormError from '../form-error/FormError'
 import FloatInput from '../ui/float-input/FloatInput'
+import Loader from '../ui/loader/Loader'
 import PrimaryButton from '../ui/primary-button/PrimaryButton'
 import PrimarySelect from '../ui/primary-select/PrimarySelect'
 import PrimaryTextarea from '../ui/primary-textarea/PrimaryTextarea'
@@ -31,9 +33,15 @@ const CreateNoteForm = () => {
 
 	const { getErrorComponent, setError, setErrorMessage } = useFormError()
 
+	const [isLoading, setIsLoading] = useState(false)
+
 	const onSubmit: SubmitHandler<CreateNoteType> = async createNoteData => {
 		try {
+			setIsLoading(true)
+
 			const notes = await getLocalStorageItemAsync('notes')
+
+			setIsLoading(false)
 
 			if (notes) {
 				const notesArray = JSON.parse(notes) as INote[]
@@ -52,11 +60,14 @@ const CreateNoteForm = () => {
 			reset()
 		} catch (error) {
 			console.log(error)
+		} finally {
+			setIsLoading(false)
 		}
 	}
 
 	return (
 		<>
+			{isLoading && <Loader text='Loading...' />}
 			<div className={styles.generalFormError}>{getErrorComponent()}</div>
 			<form
 				onSubmit={handleSubmit(onSubmit)}
