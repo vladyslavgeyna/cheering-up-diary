@@ -40,8 +40,6 @@ const CreateNoteForm = () => {
 	const buttonRef = useRef<HTMLButtonElement>(null)
 
 	useEffect(() => {
-		console.log('here')
-
 		if (buttonRef.current) {
 			buttonRef.current.disabled = !isValid && isDirty
 		}
