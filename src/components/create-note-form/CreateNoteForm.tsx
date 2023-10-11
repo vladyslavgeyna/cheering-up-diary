@@ -7,6 +7,7 @@ import {
 	getEnumMaxValue,
 	getEnumMinValue,
 } from '@/utils/enum.utils'
+import { useEffect, useRef } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import FormError from '../form-error/FormError'
 import FloatInput from '../ui/float-input/FloatInput'
@@ -35,6 +36,16 @@ const CreateNoteForm = () => {
 			console.log(error)
 		}
 	}
+
+	const buttonRef = useRef<HTMLButtonElement>(null)
+
+	useEffect(() => {
+		console.log('here')
+
+		if (buttonRef.current) {
+			buttonRef.current.disabled = !isValid && isDirty
+		}
+	}, [isValid, isDirty])
 
 	return (
 		<form
@@ -103,7 +114,7 @@ const CreateNoteForm = () => {
 					message={errors.category?.message}
 				/>
 			</div>
-			<PrimaryButton disabled={!isValid && isDirty} type='submit'>
+			<PrimaryButton buttonRef={buttonRef} type='submit'>
 				Create
 			</PrimaryButton>
 		</form>
