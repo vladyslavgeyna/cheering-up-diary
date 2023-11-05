@@ -2,13 +2,10 @@
 
 import NotesList from '@/components/notes-list/NotesList'
 import PrimaryTitle from '@/components/ui/primary-title/PrimaryTitle'
-import { NoteCategory } from '@/types/note-category.enum'
-import { INote } from '@/types/note.interface'
-import { useEffect, useState } from 'react'
+import useNotes from '@/hooks/useNotes'
 import styles from './page.module.scss'
-
 export default function Home() {
-	const [notes, setNotes] = useState<INote[]>([])
+	/*const [notes, setNotes] = useState<INote[]>([])
 
 	useEffect(() => {
 		// this part will be refactored in lab3
@@ -37,6 +34,8 @@ export default function Home() {
 	useEffect(() => {
 		localStorage.setItem('notes', JSON.stringify(notes))
 	}, [notes])
+*/
+	const { notes, setNotes, loading, error } = useNotes()
 
 	const deleteNote = (dateOfCreation: Date) => {
 		const updatedNotes = notes.filter(
@@ -44,6 +43,9 @@ export default function Home() {
 		)
 		setNotes(updatedNotes)
 	}
+
+	if (loading) return <div>Loading...</div>
+	if (error) return <div>Error: {error.message}</div>
 
 	return (
 		<main className={styles.main}>
