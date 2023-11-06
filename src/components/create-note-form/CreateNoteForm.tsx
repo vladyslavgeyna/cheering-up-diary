@@ -7,7 +7,9 @@ import {
 	getEnumMaxValue,
 	getEnumMinValue,
 } from '@/utils/enum.utils'
+import { yupResolver } from '@hookform/resolvers/yup'
 import { SubmitHandler, useForm } from 'react-hook-form'
+import * as yup from 'yup'
 import FormError from '../form-error/FormError'
 import FloatInput from '../ui/float-input/FloatInput'
 import PrimaryButton from '../ui/primary-button/PrimaryButton'
@@ -18,6 +20,25 @@ import styles from './CreateNoteForm.module.scss'
 type CreateNoteType = Omit<INote, 'dateOfCreation'>
 
 const CreateNoteForm = () => {
+	const schema = yup.object({
+		title: yup
+			.string()
+			.required('Title is required')
+			.min(3, 'Min title length is 3')
+			.max(20, 'Max title length is 20'),
+		text: yup
+			.string()
+			.required('Text is required')
+			.min(10, 'Min text length is 10')
+			.max(500, 'Max text length is 500'),
+		category: yup
+			.number()
+			.integer()
+			.required('Category is required')
+			.min(getEnumMinValue(NoteCategory), 'Incorrect category')
+			.max(getEnumMaxValue(NoteCategory), 'Incorrect category'),
+	})
+
 	const {
 		handleSubmit,
 		register,
@@ -25,6 +46,7 @@ const CreateNoteForm = () => {
 		reset,
 	} = useForm<CreateNoteType>({
 		mode: 'onChange',
+		resolver: yupResolver(schema),
 	})
 
 	const onSubmit: SubmitHandler<CreateNoteType> = createNoteData => {
@@ -43,17 +65,7 @@ const CreateNoteForm = () => {
 			method='post'>
 			<div className={styles.formItem}>
 				<FloatInput
-					register={register('title', {
-						required: 'Title is required',
-						maxLength: {
-							value: 20,
-							message: 'Max title length is 20',
-						},
-						minLength: {
-							value: 3,
-							message: 'Min title length is 3',
-						},
-					})}
+					register={register('title')}
 					type='text'
 					label='Title'
 				/>
@@ -64,19 +76,7 @@ const CreateNoteForm = () => {
 			</div>
 			<div className={styles.formItem}>
 				<p className={styles.formLabel}>Text</p>
-				<PrimaryTextarea
-					register={register('text', {
-						required: 'Text is required',
-						maxLength: {
-							value: 500,
-							message: 'Max text length is 500',
-						},
-						minLength: {
-							value: 10,
-							message: 'Min text length is 10',
-						},
-					})}
-				/>
+				<PrimaryTextarea register={register('text')} />
 				<FormError
 					className={styles.formError}
 					message={errors.text?.message}
@@ -85,17 +85,7 @@ const CreateNoteForm = () => {
 			<div className={styles.formItem}>
 				<PrimarySelect
 					items={getEnumAsISelectItemArray(NoteCategory)}
-					register={register('category', {
-						required: 'Category is required',
-						max: {
-							value: getEnumMaxValue(NoteCategory),
-							message: 'Incorrect category',
-						},
-						min: {
-							value: getEnumMinValue(NoteCategory),
-							message: 'Incorrect category',
-						},
-					})}
+					register={register('category')}
 					defaultValue='Choose type of note'
 				/>
 				<FormError
