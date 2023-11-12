@@ -1,6 +1,15 @@
 import React from 'react'
-import { InputFieldProps } from '../../../types/input-field.interface'
+import { FieldError, UseFormRegister } from 'react-hook-form'
+import { RegistrationFormData } from '../../../types/registration-form-data.interface'
 import styles from './InputField.module.css'
+
+interface InputFieldProps {
+	label: string
+	register: UseFormRegister<RegistrationFormData>
+	error?: FieldError
+	name: keyof RegistrationFormData
+	type?: React.HTMLInputTypeAttribute
+}
 
 const InputField: React.FC<InputFieldProps> = ({
 	label,
