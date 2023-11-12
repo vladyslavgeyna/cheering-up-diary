@@ -1,6 +1,7 @@
 import React from 'react'
 import { FieldError, UseFormRegister } from 'react-hook-form'
-import { RegistrationFormData } from '../../../types/registration-form-data.interface'
+//import { RegistrationFormData } from '../../../types/registration-form-data.interface'
+import { RegistrationFormData } from '../validation-schema/validationSchema'
 import styles from './InputField.module.css'
 
 interface InputFieldProps {
