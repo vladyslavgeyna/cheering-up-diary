@@ -17,3 +17,5 @@ export const validationSchema = yup.object({
 		.string()
 		.oneOf([yup.ref('password'), undefined], 'Passwords must match'),
 })
+
+export type RegistrationFormData = yup.InferType<typeof validationSchema>

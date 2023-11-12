@@ -1,5 +1,5 @@
 import { FieldError, UseFormRegister } from 'react-hook-form'
-import { RegistrationFormData } from '../types/registration-form-data.interface'
+import { RegistrationFormData } from '../components/registration-form/validation-schema/validationSchema'
 
 export interface InputFieldProps {
 	label: string
