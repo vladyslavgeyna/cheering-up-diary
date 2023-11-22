@@ -7,10 +7,12 @@ const PrimaryButton: FC<
 		className?: string
 		disabled?: boolean
 		onClick?: React.MouseEventHandler<HTMLButtonElement>
+		buttonRef?: React.LegacyRef<HTMLButtonElement>
 	}>
-> = ({ type, children, className, onClick, disabled = false }) => {
+> = ({ type, children, className, onClick, buttonRef, disabled = false }) => {
 	return (
 		<button
+			ref={buttonRef}
 			onClick={onClick}
 			disabled={disabled}
 			className={`${className || ''} ${styles.button}`}
