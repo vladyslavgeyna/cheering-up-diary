@@ -8,9 +8,9 @@ import {
 	getEnumMaxValue,
 	getEnumMinValue,
 } from '@/utils/enum.utils'
+import { getLocalStorageItemAsync } from '@/utils/utils'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useEffect, useRef, useState } from 'react'
-import { getLocalStorageItemAsync } from '@/utils/utils'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import FormError from '../form-error/FormError'
@@ -96,48 +96,47 @@ const CreateNoteForm = () => {
 	}, [isValid, isDirty])
 
 	return (
-
 		<>
 			{isLoading && <Loader text='Loading...' />}
 			<div className={styles.generalFormError}>{getErrorComponent()}</div>
 			<form
-			onSubmit={handleSubmit(onSubmit)}
-			className={styles.form}
-			method='post'>
-			<div className={styles.formItem}>
-				<FloatInput
-					register={register('title')}
-					type='text'
-					label='Title'
-				/>
-				<FormError
-					className={styles.formError}
-					message={errors.title?.message}
-				/>
-			</div>
-			<div className={styles.formItem}>
-				<p className={styles.formLabel}>Text</p>
-				<PrimaryTextarea register={register('text')} />
-				<FormError
-					className={styles.formError}
-					message={errors.text?.message}
-				/>
-			</div>
-			<div className={styles.formItem}>
-				<PrimarySelect
-					items={getEnumAsISelectItemArray(NoteCategory)}
-					register={register('category')}
-					defaultValue='Choose type of note'
-				/>
-				<FormError
-					className={styles.formError}
-					message={errors.category?.message}
-				/>
-			</div>
-			<PrimaryButton buttonRef={buttonRef} type='submit'>
-          Create
-        </PrimaryButton>
-		</form>
+				onSubmit={handleSubmit(onSubmit)}
+				className={styles.form}
+				method='post'>
+				<div className={styles.formItem}>
+					<FloatInput
+						register={register('title')}
+						type='text'
+						label='Title'
+					/>
+					<FormError
+						className={styles.formError}
+						message={errors.title?.message}
+					/>
+				</div>
+				<div className={styles.formItem}>
+					<p className={styles.formLabel}>Text</p>
+					<PrimaryTextarea register={register('text')} />
+					<FormError
+						className={styles.formError}
+						message={errors.text?.message}
+					/>
+				</div>
+				<div className={styles.formItem}>
+					<PrimarySelect
+						items={getEnumAsISelectItemArray(NoteCategory)}
+						register={register('category')}
+						defaultValue='Choose type of note'
+					/>
+					<FormError
+						className={styles.formError}
+						message={errors.category?.message}
+					/>
+				</div>
+				<PrimaryButton buttonRef={buttonRef} type='submit'>
+					Create
+				</PrimaryButton>
+			</form>
 		</>
 	)
 }
