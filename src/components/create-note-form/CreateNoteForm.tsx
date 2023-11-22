@@ -1,5 +1,6 @@
 'use client'
 
+import useFormError from '@/hooks/useFormError'
 import { NoteCategory } from '@/types/note-category.enum'
 import { INote } from '@/types/note.interface'
 import {
@@ -8,10 +9,13 @@ import {
 	getEnumMinValue,
 } from '@/utils/enum.utils'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { useEffect, useRef, useState } from 'react'
+import { getLocalStorageItemAsync } from '@/utils/utils'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import FormError from '../form-error/FormError'
 import FloatInput from '../ui/float-input/FloatInput'
+import Loader from '../ui/loader/Loader'
 import PrimaryButton from '../ui/primary-button/PrimaryButton'
 import PrimarySelect from '../ui/primary-select/PrimarySelect'
 import PrimaryTextarea from '../ui/primary-textarea/PrimaryTextarea'
@@ -49,17 +53,54 @@ const CreateNoteForm = () => {
 		resolver: yupResolver(schema),
 	})
 
-	const onSubmit: SubmitHandler<CreateNoteType> = createNoteData => {
+	const { getErrorComponent, setError, setErrorMessage } = useFormError()
+
+	const [isLoading, setIsLoading] = useState(false)
+
+	const onSubmit: SubmitHandler<CreateNoteType> = async createNoteData => {
 		try {
+			setIsLoading(true)
+
+			const notes = await getLocalStorageItemAsync('notes')
+
+			setIsLoading(false)
+
+			if (notes) {
+				const notesArray = JSON.parse(notes) as INote[]
+				if (
+					notesArray.some(note => note.title === createNoteData.title)
+				) {
+					setError(true)
+					setErrorMessage(
+						`Note with the title '${createNoteData.title}' already exists`,
+					)
+					return
+				}
+			}
+
 			console.log(createNoteData)
 			reset()
 		} catch (error) {
 			console.log(error)
+		} finally {
+			setIsLoading(false)
 		}
 	}
 
+	const buttonRef = useRef<HTMLButtonElement>(null)
+
+	useEffect(() => {
+		if (buttonRef.current) {
+			buttonRef.current.disabled = !isValid && isDirty
+		}
+	}, [isValid, isDirty])
+
 	return (
-		<form
+
+		<>
+			{isLoading && <Loader text='Loading...' />}
+			<div className={styles.generalFormError}>{getErrorComponent()}</div>
+			<form
 			onSubmit={handleSubmit(onSubmit)}
 			className={styles.form}
 			method='post'>
@@ -93,10 +134,11 @@ const CreateNoteForm = () => {
 					message={errors.category?.message}
 				/>
 			</div>
-			<PrimaryButton disabled={!isValid && isDirty} type='submit'>
-				Create
-			</PrimaryButton>
+			<PrimaryButton buttonRef={buttonRef} type='submit'>
+          Create
+        </PrimaryButton>
 		</form>
+		</>
 	)
 }
 
