@@ -1,0 +1,42 @@
+.noteCard {
+	width: 342px;
+	padding: 20px;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.noteHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-bottom: 10px;
+}
+
+.noteTitle {
+	margin: 0;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.noteCategory,
+.noteTime {
+	font-size: 12px;
+	color: #888;
+	margin-top: 5px;
+}
+
+.noteContent {
+	margin: 15px 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	max-width: 100%;
+}
+
+.noteActions {
+	display: flex;
+	justify-content: right;
+	gap: 10px;
+}
