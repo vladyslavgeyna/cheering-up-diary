@@ -1,0 +1,31 @@
+// src/components/edit-modal/EditModal.scss
+.edit-modal-content {
+
+    input,
+    textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+
+        &:focus {
+            outline: none;
+            border-color: #6c757d;
+        }
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #218838;
+        }
+    }
+}
