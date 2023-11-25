@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 * {
 	padding: 0;
 	margin: 0;
@@ -80,13 +82,26 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
 	transition: background-color 5000s ease-in-out 0s;
 }
-.wrapper {
+.wrapper.light-theme {
+	background-color: $white-color;
+	color: $dark-color;
 	min-height: 100vh;
 	min-width: 320px;
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;
 }
+
+.wrapper.dark-theme {
+	background-color: $dark-color;
+	color: $white-color;
+	min-height: 100vh;
+	min-width: 320px;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
 main.main {
 	margin-top: 64px;
 	padding: 25px 0;
