@@ -7,6 +7,7 @@ interface IUserState {
 	error: string
 	user: IUser | null
 	isAuthenticated: boolean
+	isCheckingAuthFinished: boolean
 }
 
 const initialState: IUserState = {
@@ -14,6 +15,7 @@ const initialState: IUserState = {
 	error: '',
 	user: null,
 	isAuthenticated: false,
+	isCheckingAuthFinished: false,
 }
 
 export const userSlice = createSlice({
@@ -29,6 +31,9 @@ export const userSlice = createSlice({
 			state.user = null
 			state.isAuthenticated = false
 			localStorage.removeItem('user')
+		},
+		setIsCheckingAuthFinished: (state, action: PayloadAction<boolean>) => {
+			state.isCheckingAuthFinished = action.payload
 		},
 	},
 	extraReducers: builder => {

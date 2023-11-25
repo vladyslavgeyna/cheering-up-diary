@@ -1,11 +1,21 @@
-import PrimaryLink from '@/components/ui/primary-link/PrimaryLink'
+'use client'
+import { useActions } from '@/hooks/useActions'
+import { useTypedSelector } from '@/hooks/useTypedSelector'
 import Link from 'next/link'
+import { redirect } from 'next/navigation'
 import Container from '../container/Container'
 import styles from './Header.module.scss'
 
 const Header = () => {
-	// this is just placeholder
-	const isAuthenticated = true
+	const { isAuthenticated, isCheckingAuthFinished, isLoading } =
+		useTypedSelector(state => state.user)
+
+	const { logout } = useActions()
+
+	const handleLogout = async () => {
+		logout()
+		redirect('/')
+	}
 
 	return (
 		<header className={styles.header}>
@@ -17,14 +27,35 @@ const Header = () => {
 						</Link>
 						<div className={styles.blockChild}>
 							<div className={styles.linksWrapper}>
-								{isAuthenticated ? (
-									<Link
-										className={styles.link}
-										href={'/note/create'}>
-										<span>Add new note</span>
-									</Link>
+								{isLoading || !isCheckingAuthFinished ? (
+									''
+								) : isAuthenticated ? (
+									<>
+										<Link
+											className={styles.link}
+											href={'/note/create'}>
+											<span>Add new note</span>
+										</Link>
+										<Link
+											onClick={handleLogout}
+											className={styles.link}
+											href={'/note/create'}>
+											<span>Logout</span>
+										</Link>
+									</>
 								) : (
-									<PrimaryLink href={'/'}>Log in</PrimaryLink>
+									<>
+										<Link
+											className={styles.link}
+											href={'/'}>
+											<span>Sign up</span>
+										</Link>
+										<Link
+											className={styles.link}
+											href={'/'}>
+											<span>Sign in</span>
+										</Link>
+									</>
 								)}
 							</div>
 						</div>
