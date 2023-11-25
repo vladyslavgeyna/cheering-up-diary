@@ -2,14 +2,20 @@
 
 import styles from '@/components/note-item/NoteItem.module.scss'
 import { NoteCategory } from '@/types/note-category.enum'
-import { NoteProps } from '@/types/note-props.interface'
-import Button from './subcomponents/note-button/NoteButton'
+import { INote } from '@/types/note.interface'
+import { useState } from 'react'
 import DetailsModal from './subcomponents/details-modal/DetailsModal'
 import EditModal from './subcomponents/edit-modal/EditModal'
-import { useState } from 'react'
-import { INote } from '@/types/note.interface'
+import Button from './subcomponents/note-button/NoteButton'
 
-const NoteItem: React.FC<NoteProps> = ({ note, onDelete }) => {
+type PropsType = {
+	title: string
+	text: string
+	note: INote
+	onDelete: (dateOfCreation: Date) => void
+}
+
+const NoteItem: React.FC<PropsType> = ({ note, onDelete }) => {
 	const [isDetailsActive, setIsDetailsActive] = useState(false)
 	const [isEditActive, setIsEditActive] = useState(false)
 
@@ -25,7 +31,8 @@ const NoteItem: React.FC<NoteProps> = ({ note, onDelete }) => {
 		setIsEditActive(true)
 	}
 
-	const handleSave = (updatedNote: INote) => { // Змініть на правильний тип
+	const handleSave = (updatedNote: INote) => {
+		// Змініть на правильний тип
 		// Тут можна додати логіку для збереження оновленої нотатки
 	}
 
@@ -59,8 +66,17 @@ const NoteItem: React.FC<NoteProps> = ({ note, onDelete }) => {
 					Delete
 				</Button>
 			</div>
-			<DetailsModal note={note} isActive={isDetailsActive} setIsActive={setIsDetailsActive} />
-			<EditModal note={note} isActive={isEditActive} setIsActive={setIsEditActive} onSave={handleSave} />
+			<DetailsModal
+				note={note}
+				isActive={isDetailsActive}
+				setIsActive={setIsDetailsActive}
+			/>
+			<EditModal
+				note={note}
+				isActive={isEditActive}
+				setIsActive={setIsEditActive}
+				onSave={handleSave}
+			/>
 		</div>
 	)
 }
