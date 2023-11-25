@@ -12,7 +12,7 @@ interface IUserState {
 const initialState: IUserState = {
 	isLoading: false,
 	error: '',
-	user: {} as IUser,
+	user: null,
 	isAuthenticated: false,
 }
 
