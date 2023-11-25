@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from 'react'
 import { CSSTransition } from 'react-transition-group'
-import styles from './BarLoader.module.scss'
+import styles from './Loader.module.scss'
 
 const Loader: FC<{ text: string }> = ({ text }) => {
 	const [isEnter, setIsEnter] = useState(true)
