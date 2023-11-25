@@ -1,11 +1,11 @@
-import { IUser } from '@/types/user.interface'
+import { IUserWithId } from '@/types/user.interface'
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { login, register } from './user.actions'
 
 interface IUserState {
 	isLoading: boolean
 	error: string
-	user: IUser | null
+	user: IUserWithId | null
 	isAuthenticated: boolean
 	isCheckingAuthFinished: boolean
 }
@@ -22,7 +22,7 @@ export const userSlice = createSlice({
 	name: 'users',
 	initialState,
 	reducers: {
-		setCredentials: (state, action: PayloadAction<IUser>) => {
+		setCredentials: (state, action: PayloadAction<IUserWithId>) => {
 			state.user = action.payload
 			state.isAuthenticated = true
 			localStorage.setItem('user', JSON.stringify(action.payload))

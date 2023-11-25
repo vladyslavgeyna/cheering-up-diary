@@ -1,6 +1,6 @@
 'use client'
 import { useActions } from '@/hooks/useActions'
-import { IUser } from '@/types/user.interface'
+import { IUserWithId } from '@/types/user.interface'
 import { FC, PropsWithChildren, useEffect } from 'react'
 
 const Wrapper: FC<PropsWithChildren> = ({ children }) => {
@@ -12,7 +12,7 @@ const Wrapper: FC<PropsWithChildren> = ({ children }) => {
 		let user = null
 
 		if (userJSON) {
-			user = JSON.parse(userJSON) as IUser
+			user = JSON.parse(userJSON) as IUserWithId
 		}
 
 		if (user) {

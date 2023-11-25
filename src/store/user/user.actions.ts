@@ -1,13 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 import { API_URL } from '../../../config'
-import { IUser } from './../../types/user.interface'
+import { IUser, IUserWithId } from './../../types/user.interface'
 
-export const register = createAsyncThunk<IUser, IUser>(
+export const register = createAsyncThunk<IUserWithId, IUser>(
 	'user/register',
 	async (userToRegister, thunkApi) => {
 		try {
-			const checkUserExistsResponse = await axios.get<IUser[]>(
+			const checkUserExistsResponse = await axios.get<IUserWithId[]>(
 				`${API_URL}/users?username=${userToRegister.username}`,
 			)
 
@@ -17,7 +17,7 @@ export const register = createAsyncThunk<IUser, IUser>(
 				)
 			}
 
-			const registerUserResponse = await axios.post<IUser>(
+			const registerUserResponse = await axios.post<IUserWithId>(
 				`${API_URL}/users`,
 				{
 					...userToRegister,
@@ -37,11 +37,11 @@ export const register = createAsyncThunk<IUser, IUser>(
 	},
 )
 
-export const login = createAsyncThunk<IUser, IUser>(
+export const login = createAsyncThunk<IUserWithId, IUser>(
 	'user/login',
 	async (userToLogin, thunkApi) => {
 		try {
-			const checkUserExistsResponse = await axios.get<IUser[]>(
+			const checkUserExistsResponse = await axios.get<IUserWithId[]>(
 				`${API_URL}/users?username=${userToLogin.username}&password=${userToLogin.password}`,
 			)
 

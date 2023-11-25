@@ -6,3 +6,7 @@ export interface INote {
 	dateOfCreation: Date
 	category: NoteCategory
 }
+
+export interface INoteWithId extends INote {
+	id: number
+}

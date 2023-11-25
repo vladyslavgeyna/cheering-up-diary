@@ -47,12 +47,12 @@ const Header = () => {
 									<>
 										<Link
 											className={styles.link}
-											href={'/'}>
+											href={'/register'}>
 											<span>Sign up</span>
 										</Link>
 										<Link
 											className={styles.link}
-											href={'/'}>
+											href={'/login'}>
 											<span>Sign in</span>
 										</Link>
 									</>
