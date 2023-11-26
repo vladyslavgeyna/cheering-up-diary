@@ -11,6 +11,15 @@ export const noteApi = api.injectEndpoints({
 				},
 			],
 		}),
+		getNotesByUserId: builder.query<INoteWithId[], number>({
+			query: userId => `/notes?userId=${userId}`,
+			providesTags: (_result, _error, userId) => [
+				{
+					type: 'Note',
+					id: userId,
+				},
+			],
+		}),
 		getNoteById: builder.query<INoteWithId, number>({
 			query: noteId => `/notes/${noteId}`,
 			providesTags: (_result, _error, noteId) => [
