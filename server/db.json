@@ -1,63 +1,69 @@
 {
-  "notes": [
-    {
-      "id": 1,
-      "title": "Grateful Dinner",
-      "text": "Had a wonderful Thanksgiving dinner with family and friends.",
-      "dateOfCreation": "2023-11-25T18:30:00.000Z",
-      "category": "Thanksgiving"
-    },
-    {
-      "id": 2,
-      "title": "Joyful Day",
-      "text": "Enjoyed a positive and uplifting moment today.",
-      "dateOfCreation": "2023-11-25T15:45:00.000Z",
-      "category": "Positive moment"
-    },
-    {
-      "id": 3,
-      "title": "Expressing Thanks",
-      "text": "Taking a moment to express gratitude for the little things in life.",
-      "dateOfCreation": "2023-11-24T20:15:00.000Z",
-      "category": "Thanksgiving"
-    },
-    {
-      "id": 4,
-      "title": "Achievement Unlocked",
-      "text": "Successfully completed a challenging task. Feeling accomplished!",
-      "dateOfCreation": "2023-11-24T12:00:00.000Z",
-      "category": "Positive moment"
-    },
-    {
-      "id": 5,
-      "title": "Family Bonding",
-      "text": "Spent quality time with family, creating lasting memories.",
-      "dateOfCreation": "2023-11-23T17:00:00.000Z",
-      "category": "Positive moment"
-    },
-    {
-      "id": 6,
-      "title": "Thanksgiving Reflections",
-      "text": "Reflecting on the blessings and thankful for the people in my life.",
-      "dateOfCreation": "2023-11-23T10:30:00.000Z",
-      "category": "Thanksgiving"
-    }
-  ],
-  "users": [
-    {
-      "id": 1,
-      "username": "ishak",
-      "password": "123456"
-    },
-    {
-      "username": "vladg",
-      "password": "123123",
-      "id": 2
-    },
-    {
-      "username": "vladgeinf",
-      "password": "123123",
-      "id": 3
-    }
-  ]
+	"notes": [
+		{
+			"id": 1,
+			"title": "Grateful Dinner",
+			"text": "Had a wonderful Thanksgiving dinner with family and friends.",
+			"dateOfCreation": "2023-11-25T18:30:00.000Z",
+			"category": "Thanksgiving",
+			"userId": 1
+		},
+		{
+			"id": 2,
+			"title": "Joyful Day",
+			"text": "Enjoyed a positive and uplifting moment today.",
+			"dateOfCreation": "2023-11-25T15:45:00.000Z",
+			"category": "Positive moment",
+			"userId": 1
+		},
+		{
+			"id": 3,
+			"title": "Expressing Thanks",
+			"text": "Taking a moment to express gratitude for the little things in life.",
+			"dateOfCreation": "2023-11-24T20:15:00.000Z",
+			"category": "Thanksgiving",
+			"userId": 1
+		},
+		{
+			"id": 4,
+			"title": "Achievement Unlocked",
+			"text": "Successfully completed a challenging task. Feeling accomplished!",
+			"dateOfCreation": "2023-11-24T12:00:00.000Z",
+			"category": "Positive moment",
+			"userId": 1
+		},
+		{
+			"id": 5,
+			"title": "Family Bonding",
+			"text": "Spent quality time with family, creating lasting memories.",
+			"dateOfCreation": "2023-11-23T17:00:00.000Z",
+			"category": "Positive moment",
+			"userId": 1
+		},
+		{
+			"id": 6,
+			"title": "Thanksgiving Reflections",
+			"text": "Reflecting on the blessings and thankful for the people in my life.",
+			"dateOfCreation": "2023-11-23T10:30:00.000Z",
+			"category": "Thanksgiving",
+			"userId": 1
+		}
+	],
+	"users": [
+		{
+			"id": 1,
+			"username": "ishak",
+			"password": "123456"
+		},
+		{
+			"username": "vladg",
+			"password": "123123",
+			"id": 2
+		},
+		{
+			"username": "vladgeinf",
+			"password": "123123",
+			"id": 3
+		}
+	]
 }

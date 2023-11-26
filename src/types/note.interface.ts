@@ -5,6 +5,7 @@ export interface INote {
 	text: string
 	dateOfCreation: Date
 	category: NoteCategory
+	userId: number
 }
 
 export interface INoteWithId extends INote {
