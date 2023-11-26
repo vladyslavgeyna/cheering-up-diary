@@ -1,15 +1,17 @@
 'use client'
 
 import styles from '@/components/notes-list/NotesList.module.scss'
-import { INote } from '@/types/note.interface'
+import { INoteWithId } from '@/types/note.interface'
 import NoteItem from '../note-item/NoteItem'
 
 type PropsType = {
-	notes: INote[]
+	notes: INoteWithId[] | undefined
 	onDelete: (dateOfCreation: Date) => void
 }
 
 const NotesList: React.FC<PropsType> = ({ notes, onDelete }) => {
+	if (notes == undefined) return
+
 	if (notes.length === 0) {
 		return (
 			<div className={styles.emptyList}>The list of notes is empty</div>

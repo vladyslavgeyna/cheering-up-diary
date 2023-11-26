@@ -1,29 +1,40 @@
 // src/components/details-modal/DetailsModal.tsx
-import React from 'react'
 import Modal from '@/components/modal/Modal'
 import { INote } from '@/types/note.interface'
+import React from 'react'
 import './DetailsModal.scss'
-import { NoteCategory } from '@/types/note-category.enum'
 
 interface DetailsModalProps {
-    note: INote;
-    isActive: boolean;
-    setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
+	note: INote
+	isActive: boolean
+	setIsActive: React.Dispatch<React.SetStateAction<boolean>>
 }
 
+const DetailsModal: React.FC<DetailsModalProps> = ({
+	note,
+	isActive,
+	setIsActive,
+}) => {
+	const dateOfCreation = new Date(note.dateOfCreation)
 
-const DetailsModal: React.FC<DetailsModalProps> = ({ note, isActive, setIsActive }) => {
-    return (
-        <Modal isActive={isActive} setIsActive={setIsActive}>
-            <div className="details-modal-content">
-                <h2>{note.title}</h2>
-                <p><strong>Type:</strong> {NoteCategory[note.category]}</p>
-                <p><strong>Content:</strong> {note.text}</p>
-                <p><strong>Date of Creation:</strong> {note.dateOfCreation.toLocaleDateString()} at {note.dateOfCreation.toLocaleTimeString()}</p>
-            </div>
-        </Modal>
-    )
+	return (
+		<Modal isActive={isActive} setIsActive={setIsActive}>
+			<div className='details-modal-content'>
+				<h2>{note.title}</h2>
+				<p>
+					<strong>Type:</strong> {note.category}
+				</p>
+				<p>
+					<strong>Content:</strong> {note.text}
+				</p>
+				<p>
+					<strong>Date of Creation:</strong>{' '}
+					{dateOfCreation.toLocaleDateString()} at{' '}
+					{dateOfCreation.toLocaleTimeString()}
+				</p>
+			</div>
+		</Modal>
+	)
 }
-
 
 export default DetailsModal
