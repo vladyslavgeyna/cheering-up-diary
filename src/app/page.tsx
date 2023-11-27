@@ -1,34 +1,46 @@
 'use client'
 
 import NotesList from '@/components/notes-list/NotesList'
+import Loader from '@/components/ui/loader/Loader'
 import PrimaryTitle from '@/components/ui/primary-title/PrimaryTitle'
-import useNotes from '@/hooks/useNotes'
-import { useGetNotesQuery } from '@/store/api/note'
+import RequireNotAuth from '@/components/utils/RequireNotAuth'
+import { useTypedSelector } from '@/hooks/useTypedSelector'
+import { useGetNotesByUserIdQuery } from '@/store/api/note'
+import { redirect } from 'next/navigation'
 import styles from './page.module.scss'
+import RequireAuth from '@/components/utils/RequireAuth'
 
 export default function Home() {
-	const { setNotes, loading, error } = useNotes()
+	const { user } = useTypedSelector(state => state.user)
 
-	const {
-		data: notesFromApi,
-		isLoading,
-		error: apiError,
-	} = useGetNotesQuery(null)
-
-	const deleteNote = (dateOfCreation: Date) => {
-		/*const updatedNotes = notes.filter(
-			note => note.dateOfCreation !== dateOfCreation,
-		)
-		setNotes(updatedNotes)*/
+	if (!user) {
+		redirect('/login')
 	}
 
-	if (loading) return <div>Loading...</div>
-	if (error) return <div>Error: {error.message}</div>
+	const { error, isLoading, data } = useGetNotesByUserIdQuery(user.id)
+
+	const deleteNote = (dateOfCreation: Date) => {
+		console.log('Delete note')
+	}
+
+	if (isLoading) {
+		return <Loader text='Loading...' />
+	}
+
+	if (error) {
+		return <h1>Some error occured</h1>
+	}
 
 	return (
-		<main className={styles.main}>
-			<PrimaryTitle className={styles.title}>Notes list</PrimaryTitle>
-			<NotesList notes={notesFromApi} onDelete={deleteNote} />
-		</main>
+		<RequireAuth>
+			<div className={styles.main}>
+				{data && data.length && (
+					<PrimaryTitle className={styles.title}>
+						Notes list
+					</PrimaryTitle>
+				)}
+				<NotesList notes={data} onDelete={deleteNote} />
+			</div>
+		</RequireAuth>
 	)
 }
