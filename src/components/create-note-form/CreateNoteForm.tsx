@@ -1,6 +1,8 @@
 'use client'
 
 import useFormError from '@/hooks/useFormError'
+import { useTypedSelector } from '@/hooks/useTypedSelector'
+import { useCreateNoteMutation } from '@/store/api/note'
 import { NoteCategory } from '@/types/note-category.enum'
 import { INote } from '@/types/note.interface'
 import {
@@ -8,9 +10,9 @@ import {
 	getEnumMaxValue,
 	getEnumMinValue,
 } from '@/utils/enum.utils'
-import { getLocalStorageItemAsync } from '@/utils/utils'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useEffect, useRef, useState } from 'react'
+import { redirect, useRouter } from 'next/navigation'
+import { useEffect, useRef } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import FormError from '../form-error/FormError'
@@ -21,9 +23,20 @@ import PrimarySelect from '../ui/primary-select/PrimarySelect'
 import PrimaryTextarea from '../ui/primary-textarea/PrimaryTextarea'
 import styles from './CreateNoteForm.module.scss'
 
-type CreateNoteType = Omit<INote, 'dateOfCreation'>
+type CreateNoteType = Omit<Omit<INote, 'dateOfCreation'>, 'userId'>
 
 const CreateNoteForm = () => {
+	const router = useRouter()
+
+	const { user } = useTypedSelector(state => state.user)
+
+	if (!user) {
+		redirect('/login')
+	}
+
+	const [createNote, { error, isLoading, isSuccess }] =
+		useCreateNoteMutation()
+
 	const schema = yup.object({
 		title: yup
 			.string()
@@ -55,37 +68,26 @@ const CreateNoteForm = () => {
 
 	const { getErrorComponent, setError, setErrorMessage } = useFormError()
 
-	const [isLoading, setIsLoading] = useState(false)
-
 	const onSubmit: SubmitHandler<CreateNoteType> = async createNoteData => {
 		try {
-			setIsLoading(true)
-
-			const notes = await getLocalStorageItemAsync('notes')
-
-			setIsLoading(false)
-
-			if (notes) {
-				const notesArray = JSON.parse(notes) as INote[]
-				if (
-					notesArray.some(note => note.title === createNoteData.title)
-				) {
-					setError(true)
-					setErrorMessage(
-						`Note with the title '${createNoteData.title}' already exists`,
-					)
-					return
-				}
-			}
-
-			console.log(createNoteData)
-			reset()
+			await createNote({
+				title: createNoteData.title,
+				text: createNoteData.text,
+				category: createNoteData.category,
+				userId: user.id,
+				dateOfCreation: new Date(),
+			})
 		} catch (error) {
 			console.log(error)
-		} finally {
-			setIsLoading(false)
 		}
 	}
+
+	useEffect(() => {
+		if (isSuccess) {
+			reset()
+			router.push('/')
+		}
+	}, [isSuccess])
 
 	const buttonRef = useRef<HTMLButtonElement>(null)
 

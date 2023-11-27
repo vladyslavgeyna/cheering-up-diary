@@ -29,7 +29,7 @@ export const noteApi = api.injectEndpoints({
 				},
 			],
 		}),
-		createRecipe: builder.mutation<null, INote>({
+		createNote: builder.mutation<null, INote>({
 			query: note => ({
 				body: note,
 				url: '/notes',
@@ -48,4 +48,5 @@ export const {
 	useGetNoteByIdQuery,
 	useGetNotesQuery,
 	useGetNotesByUserIdQuery,
+	useCreateNoteMutation,
 } = noteApi

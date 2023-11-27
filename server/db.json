@@ -47,6 +47,14 @@
       "dateOfCreation": "2023-11-23T10:30:00.000Z",
       "category": "Thanksgiving",
       "userId": 1
+    },
+    {
+      "title": "Some title",
+      "text": "sdfsdfsdfsdf",
+      "category": 1,
+      "userId": 4,
+      "dateOfCreation": "2023-11-27T18:24:48.888Z",
+      "id": 7
     }
   ],
   "users": [
