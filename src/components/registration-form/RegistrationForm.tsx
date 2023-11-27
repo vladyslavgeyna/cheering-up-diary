@@ -4,10 +4,15 @@ import styles from '@/components/create-note-form/CreateNoteForm.module.scss'
 import FormError from '@/components/form-error/FormError'
 import FloatInput from '@/components/ui/float-input/FloatInput'
 import PrimaryButton from '@/components/ui/primary-button/PrimaryButton'
+import { useActions } from '@/hooks/useActions'
+import { useTypedSelector } from '@/hooks/useTypedSelector'
 import { IUser } from '@/types/user.interface'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { useRouter } from 'next/navigation'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import * as Yup from 'yup'
+import Loader from '../ui/loader/Loader'
+import stylesRegisterForm from './RegistrationForm.module.scss'
 
 interface IRegistrationForm extends IUser {
 	confirmPassword: string
@@ -30,6 +35,11 @@ const validationSchema = Yup.object().shape({
 })
 
 const RegistrationForm = () => {
+	const router = useRouter()
+	const { isLoading, error } = useTypedSelector(state => state.user)
+
+	const { register: registerAction } = useActions()
+
 	const {
 		register,
 		handleSubmit,
@@ -39,53 +49,67 @@ const RegistrationForm = () => {
 		resolver: yupResolver(validationSchema),
 	})
 
+	if (isLoading) {
+		return <Loader text='Loading...' />
+	}
+
 	const onSubmit: SubmitHandler<IRegistrationForm> = data => {
-		console.log(data)
-		// Тут ваша логіка відправки даних
+		registerAction({
+			password: data.password,
+			username: data.username,
+		})
+		router.push('/')
 	}
 
 	return (
-		<form
-			onSubmit={handleSubmit(onSubmit)}
-			className={styles.form}
-			method='post'>
-			<div className={styles.formItem}>
-				<FloatInput
-					label='Username'
-					type='text'
-					register={register('username')}
-				/>
-				<FormError
-					className={styles.formError}
-					message={errors.username?.message}
-				/>
-			</div>
-			<div className={styles.formItem}>
-				<FloatInput
-					label='Password'
-					type='text'
-					register={register('password')}
-				/>
-				<FormError
-					className={styles.formError}
-					message={errors.password?.message}
-				/>
-			</div>
+		<>
+			{error && (
+				<p className={stylesRegisterForm.errorMessage}>
+					Some error occured: <strong>{error}</strong>
+				</p>
+			)}
+			<form
+				onSubmit={handleSubmit(onSubmit)}
+				className={styles.form}
+				method='post'>
+				<div className={styles.formItem}>
+					<FloatInput
+						label='Username'
+						type='text'
+						register={register('username')}
+					/>
+					<FormError
+						className={styles.formError}
+						message={errors.username?.message}
+					/>
+				</div>
+				<div className={styles.formItem}>
+					<FloatInput
+						label='Password'
+						type='text'
+						register={register('password')}
+					/>
+					<FormError
+						className={styles.formError}
+						message={errors.password?.message}
+					/>
+				</div>
 
-			<div className={styles.formItem}>
-				<FloatInput
-					label='Confrim password'
-					type='text'
-					register={register('confirmPassword')}
-				/>
-				<FormError
-					className={styles.formError}
-					message={errors.confirmPassword?.message}
-				/>
-			</div>
+				<div className={styles.formItem}>
+					<FloatInput
+						label='Confrim password'
+						type='text'
+						register={register('confirmPassword')}
+					/>
+					<FormError
+						className={styles.formError}
+						message={errors.confirmPassword?.message}
+					/>
+				</div>
 
-			<PrimaryButton type='submit'>Register</PrimaryButton>
-		</form>
+				<PrimaryButton type='submit'>Register</PrimaryButton>
+			</form>
+		</>
 	)
 }
 

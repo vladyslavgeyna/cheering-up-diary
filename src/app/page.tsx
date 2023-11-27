@@ -33,7 +33,7 @@ export default function Home() {
 	return (
 		<RequireAuth>
 			<div className={styles.main}>
-				{data && data.length && (
+				{data && data.length > 0 && (
 					<PrimaryTitle className={styles.title}>
 						Notes list
 					</PrimaryTitle>
