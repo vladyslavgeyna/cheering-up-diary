@@ -1,6 +1,7 @@
 'use client'
 
 import styles from '@/components/note-item/NoteItem.module.scss'
+import { NoteCategory } from '@/types/note-category.enum'
 import { INote, INoteWithId } from '@/types/note.interface'
 import { useState } from 'react'
 import DetailsModal from './subcomponents/details-modal/DetailsModal'
@@ -46,7 +47,9 @@ const NoteItem: React.FC<PropsType> = ({ note, onDelete }) => {
 			<div className={styles.noteHeader}>
 				<div>
 					<h2 className={styles.noteTitle}>{note.title}</h2>
-					<span className={styles.noteCategory}>{note.category}</span>
+					<span className={styles.noteCategory}>
+						{NoteCategory[note.category]}
+					</span>
 				</div>
 				<span className={styles.noteTime}>
 					{dateOfCreation.toLocaleDateString()} at{' '}
