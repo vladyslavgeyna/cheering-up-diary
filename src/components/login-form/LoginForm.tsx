@@ -8,9 +8,11 @@ import { useActions } from '@/hooks/useActions'
 import { useTypedSelector } from '@/hooks/useTypedSelector'
 import { IUser } from '@/types/user.interface'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { useRouter } from 'next/navigation'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import * as Yup from 'yup'
 import Loader from '../ui/loader/Loader'
+import stylesLoginForm from './LoginForm.module.scss'
 
 const validationSchema = Yup.object().shape({
 	username: Yup.string()
@@ -23,10 +25,11 @@ const validationSchema = Yup.object().shape({
 		.max(20, 'Max password length is 20'),
 })
 
-const LoginFormComponent = () => {
-	const { user, isLoading, error } = useTypedSelector(state => state.user)
+const LoginForm = () => {
+	const router = useRouter()
+	const { isLoading, error } = useTypedSelector(state => state.user)
 
-	const { setCredentials, login } = useActions()
+	const { login } = useActions()
 
 	const {
 		register,
@@ -41,45 +44,49 @@ const LoginFormComponent = () => {
 		return <Loader text='Loading...' />
 	}
 
-	if (error) {
-		return <h1>Some error occured</h1>
-	}
-
 	const onSubmit: SubmitHandler<IUser> = data => {
 		login(data)
+		router.push('/')
 	}
 
 	return (
-		<form
-			onSubmit={handleSubmit(onSubmit)}
-			className={styles.form}
-			method='post'>
-			<div className={styles.formItem}>
-				<FloatInput
-					label='Username'
-					type='text'
-					register={register('username')}
-				/>
-				<FormError
-					className={styles.formError}
-					message={errors.username?.message}
-				/>
-			</div>
-			<div className={styles.formItem}>
-				<FloatInput
-					label='Password'
-					type='text'
-					register={register('password')}
-				/>
-				<FormError
-					className={styles.formError}
-					message={errors.password?.message}
-				/>
-			</div>
+		<>
+			{error && (
+				<p className={stylesLoginForm.errorMessage}>
+					Some error occured: <strong>{error}</strong>
+				</p>
+			)}
+			<form
+				onSubmit={handleSubmit(onSubmit)}
+				className={styles.form}
+				method='post'>
+				<div className={styles.formItem}>
+					<FloatInput
+						label='Username'
+						type='text'
+						register={register('username')}
+					/>
+					<FormError
+						className={styles.formError}
+						message={errors.username?.message}
+					/>
+				</div>
+				<div className={styles.formItem}>
+					<FloatInput
+						label='Password'
+						type='text'
+						register={register('password')}
+					/>
+					<FormError
+						className={styles.formError}
+						message={errors.password?.message}
+					/>
+				</div>
 
-			<PrimaryButton type='submit'>Sign in</PrimaryButton>
-		</form>
+				<PrimaryButton type='submit'>Sign in</PrimaryButton>
+			</form>
+		</>
 	)
 }
 
-export default LoginFormComponent
+export default LoginForm

@@ -2,7 +2,7 @@
 import { useActions } from '@/hooks/useActions'
 import { useTypedSelector } from '@/hooks/useTypedSelector'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { redirect } from 'next/navigation'
 import Container from '../container/Container'
 import styles from './Header.module.scss'
 
@@ -11,10 +11,10 @@ const Header = () => {
 		useTypedSelector(state => state.user)
 
 	const { logout } = useActions()
-	const router = useRouter()
 
 	const handleLogout = () => {
 		logout()
+		redirect('/')
 	}
 
 	return (

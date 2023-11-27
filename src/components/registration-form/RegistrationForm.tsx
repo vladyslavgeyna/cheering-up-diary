@@ -29,7 +29,7 @@ const validationSchema = Yup.object().shape({
 		.max(20, 'Max password length is 20'),
 })
 
-const RegistrationFormComponent = () => {
+const RegistrationForm = () => {
 	const {
 		register,
 		handleSubmit,
@@ -89,4 +89,4 @@ const RegistrationFormComponent = () => {
 	)
 }
 
-export default RegistrationFormComponent
+export default RegistrationForm

@@ -3,12 +3,11 @@
 import NotesList from '@/components/notes-list/NotesList'
 import Loader from '@/components/ui/loader/Loader'
 import PrimaryTitle from '@/components/ui/primary-title/PrimaryTitle'
-import RequireNotAuth from '@/components/utils/RequireNotAuth'
+import RequireAuth from '@/components/utils/RequireAuth'
 import { useTypedSelector } from '@/hooks/useTypedSelector'
 import { useGetNotesByUserIdQuery } from '@/store/api/note'
 import { redirect } from 'next/navigation'
 import styles from './page.module.scss'
-import RequireAuth from '@/components/utils/RequireAuth'
 
 export default function Home() {
 	const { user } = useTypedSelector(state => state.user)
