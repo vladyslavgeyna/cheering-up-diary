@@ -2,7 +2,7 @@
 import { useActions } from '@/hooks/useActions'
 import { useTypedSelector } from '@/hooks/useTypedSelector'
 import Link from 'next/link'
-import { redirect } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import Container from '../container/Container'
 import styles from './Header.module.scss'
 
@@ -11,10 +11,10 @@ const Header = () => {
 		useTypedSelector(state => state.user)
 
 	const { logout } = useActions()
+	const router = useRouter()
 
-	const handleLogout = async () => {
+	const handleLogout = () => {
 		logout()
-		redirect('/')
 	}
 
 	return (
@@ -36,12 +36,12 @@ const Header = () => {
 											href={'/note/create'}>
 											<span>Add new note</span>
 										</Link>
-										<Link
+										<button
 											onClick={handleLogout}
 											className={styles.link}
-											href={'/note/create'}>
+											type={'button'}>
 											<span>Logout</span>
-										</Link>
+										</button>
 									</>
 								) : (
 									<>

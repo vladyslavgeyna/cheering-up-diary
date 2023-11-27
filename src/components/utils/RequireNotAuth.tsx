@@ -1,3 +1,5 @@
+'use client'
+
 import { redirect } from 'next/navigation'
 import { FC, PropsWithChildren } from 'react'
 import { useTypedSelector } from '../../hooks/useTypedSelector'

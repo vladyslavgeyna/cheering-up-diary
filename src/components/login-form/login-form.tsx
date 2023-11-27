@@ -4,10 +4,13 @@ import styles from '@/components/create-note-form/CreateNoteForm.module.scss'
 import FormError from '@/components/form-error/FormError'
 import FloatInput from '@/components/ui/float-input/FloatInput'
 import PrimaryButton from '@/components/ui/primary-button/PrimaryButton'
+import { useActions } from '@/hooks/useActions'
+import { useTypedSelector } from '@/hooks/useTypedSelector'
 import { IUser } from '@/types/user.interface'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import * as Yup from 'yup'
+import Loader from '../ui/loader/Loader'
 
 const validationSchema = Yup.object().shape({
 	username: Yup.string()
@@ -21,6 +24,10 @@ const validationSchema = Yup.object().shape({
 })
 
 const LoginFormComponent = () => {
+	const { user, isLoading, error } = useTypedSelector(state => state.user)
+
+	const { setCredentials, login } = useActions()
+
 	const {
 		register,
 		handleSubmit,
@@ -30,9 +37,16 @@ const LoginFormComponent = () => {
 		resolver: yupResolver(validationSchema),
 	})
 
+	if (isLoading) {
+		return <Loader text='Loading...' />
+	}
+
+	if (error) {
+		return <h1>Some error occured</h1>
+	}
+
 	const onSubmit: SubmitHandler<IUser> = data => {
-		console.log(data)
-		// Тут ваша логіка відправки даних
+		login(data)
 	}
 
 	return (
