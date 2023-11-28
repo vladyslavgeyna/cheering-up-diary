@@ -41,6 +41,32 @@ export const noteApi = api.injectEndpoints({
 				},
 			],
 		}),
+
+		deleteNote: builder.mutation<null, number>({
+			query: noteId => ({
+				url: `/notes/${noteId}`,
+				method: 'DELETE',
+			}),
+			invalidatesTags: (_result, _error, noteId) => [
+				{
+					type: 'Note',
+					id: noteId,
+				},
+			],
+		}),
+		updateNote: builder.mutation<null, INoteWithId>({
+			query: note => ({
+				url: `/notes/${note.id}`,
+				method: 'PUT',
+				body: note,
+			}),
+			invalidatesTags: (_result, _error, note) => [
+				{
+					type: 'Note',
+					id: note.id,
+				},
+			],
+		}),
 	}),
 })
 
@@ -49,4 +75,6 @@ export const {
 	useGetNotesQuery,
 	useGetNotesByUserIdQuery,
 	useCreateNoteMutation,
+	useDeleteNoteMutation,
+	useUpdateNoteMutation,
 } = noteApi
