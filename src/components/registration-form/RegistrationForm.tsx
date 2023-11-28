@@ -86,7 +86,7 @@ const RegistrationForm = () => {
 				<div className={styles.formItem}>
 					<FloatInput
 						label='Password'
-						type='text'
+						type='password'
 						register={register('password')}
 					/>
 					<FormError
@@ -98,7 +98,7 @@ const RegistrationForm = () => {
 				<div className={styles.formItem}>
 					<FloatInput
 						label='Confrim password'
-						type='text'
+						type='password'
 						register={register('confirmPassword')}
 					/>
 					<FormError

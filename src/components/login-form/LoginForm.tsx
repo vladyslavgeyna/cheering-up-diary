@@ -74,7 +74,7 @@ const LoginForm = () => {
 				<div className={styles.formItem}>
 					<FloatInput
 						label='Password'
-						type='text'
+						type='password'
 						register={register('password')}
 					/>
 					<FormError
