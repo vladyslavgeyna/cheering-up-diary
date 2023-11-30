@@ -1,4 +1,5 @@
 .noteCard {
+	flex: 1 1 auto;
 	width: 342px;
 	padding: 20px;
 	border: 1px solid #ddd;
@@ -10,8 +11,8 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	flex-wrap: wrap;
 	margin-bottom: 10px;
+	gap: 15px;
 }
 
 .noteTitle {
@@ -27,6 +28,10 @@
 	margin-top: 5px;
 }
 
+.noteTime {
+	text-align: right;
+}
+
 .noteContent {
 	margin: 15px 0;
 	overflow: hidden;
@@ -39,4 +44,13 @@
 	display: flex;
 	justify-content: right;
 	gap: 10px;
+}
+
+.details {
+	padding: 5px 7px;
+	font-size: 16px;
+	border-width: 3px;
+	&:hover {
+		border-width: 3px;
+	}
 }

@@ -35,7 +35,7 @@ export default function Home() {
 			<div className={styles.main}>
 				{data && data.length > 0 && (
 					<PrimaryTitle className={styles.title}>
-						Notes list
+						Your notes
 					</PrimaryTitle>
 				)}
 				<NotesList notes={data} onDelete={deleteNote} />

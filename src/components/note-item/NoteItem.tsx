@@ -4,9 +4,9 @@ import styles from '@/components/note-item/NoteItem.module.scss'
 import { NoteCategory } from '@/types/note-category.enum'
 import { INote, INoteWithId } from '@/types/note.interface'
 import { useState } from 'react'
+import PrimaryLink from '../ui/primary-link/PrimaryLink'
 import DetailsModal from './subcomponents/details-modal/DetailsModal'
 import EditModal from './subcomponents/edit-modal/EditModal'
-import Button from './subcomponents/note-button/NoteButton'
 
 type PropsType = {
 	title: string
@@ -51,22 +51,16 @@ const NoteItem: React.FC<PropsType> = ({ note, onDelete }) => {
 						{NoteCategory[note.category]}
 					</span>
 				</div>
-				<span className={styles.noteTime}>
+				<div className={styles.noteTime}>
 					{dateOfCreation.toLocaleDateString()} at{' '}
 					{dateOfCreation.toLocaleTimeString()}
-				</span>
+				</div>
 			</div>
 			<p className={styles.noteContent}>{note.text}</p>
 			<div className={styles.noteActions}>
-				<Button color='blue' onClick={handleDetailsClick}>
+				<PrimaryLink className={styles.details} href='/'>
 					Details
-				</Button>
-				<Button color='green' onClick={handleEditClick}>
-					Edit
-				</Button>
-				<Button color='red' onClick={handleDeleteClick}>
-					Delete
-				</Button>
+				</PrimaryLink>
 			</div>
 			<DetailsModal
 				note={note}
