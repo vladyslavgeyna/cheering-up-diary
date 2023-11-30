@@ -5,8 +5,6 @@ import { NoteCategory } from '@/types/note-category.enum'
 import { INote, INoteWithId } from '@/types/note.interface'
 import { useState } from 'react'
 import PrimaryLink from '../ui/primary-link/PrimaryLink'
-import DetailsModal from './subcomponents/details-modal/DetailsModal'
-import EditModal from './subcomponents/edit-modal/EditModal'
 
 type PropsType = {
 	title: string
@@ -58,21 +56,12 @@ const NoteItem: React.FC<PropsType> = ({ note, onDelete }) => {
 			</div>
 			<p className={styles.noteContent}>{note.text}</p>
 			<div className={styles.noteActions}>
-				<PrimaryLink className={styles.details} href='/'>
+				<PrimaryLink
+					className={styles.details}
+					href={`/note/${note.id}`}>
 					Details
 				</PrimaryLink>
 			</div>
-			<DetailsModal
-				note={note}
-				isActive={isDetailsActive}
-				setIsActive={setIsDetailsActive}
-			/>
-			<EditModal
-				note={note}
-				isActive={isEditActive}
-				setIsActive={setIsEditActive}
-				onSave={handleSave}
-			/>
 		</div>
 	)
 }
