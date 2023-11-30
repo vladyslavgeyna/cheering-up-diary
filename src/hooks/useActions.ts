@@ -3,8 +3,10 @@ import { useMemo } from 'react'
 import { useDispatch } from 'react-redux'
 import * as userApiActions from '../store/user/user.actions'
 import { userActions } from '../store/user/user.slice'
+import { notesActions } from './../store/notes/notes.slice'
 
 const rootActions = {
+	...notesActions,
 	...userActions,
 	...userApiActions,
 }
