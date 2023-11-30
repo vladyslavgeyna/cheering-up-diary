@@ -4,7 +4,11 @@ import useFormError from '@/hooks/useFormError'
 import { useTypedSelector } from '@/hooks/useTypedSelector'
 import { useCreateNoteMutation } from '@/store/api/note'
 import { NoteCategory } from '@/types/note-category.enum'
-import { getEnumAsISelectItemArray } from '@/utils/enum.utils'
+import {
+	getEnumAsISelectItemArray,
+	getEnumMaxValue,
+	getEnumMinValue,
+} from '@/utils/enum.utils'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { redirect, useRouter } from 'next/navigation'
 import { useEffect, useRef } from 'react'
@@ -21,7 +25,7 @@ import styles from './CreateNoteForm.module.scss'
 type CreateNoteType = {
 	title: string
 	text: string
-	category: string
+	category: NoteCategory
 }
 
 const CreateNoteForm = () => {
@@ -33,8 +37,7 @@ const CreateNoteForm = () => {
 		redirect('/login')
 	}
 
-	const [createNote, { error, isLoading, isSuccess }] =
-		useCreateNoteMutation()
+	const [createNote, { isLoading, isSuccess }] = useCreateNoteMutation()
 
 	const schema = yup.object({
 		title: yup
@@ -47,7 +50,11 @@ const CreateNoteForm = () => {
 			.required('Text is required')
 			.min(10, 'Min text length is 10')
 			.max(500, 'Max text length is 500'),
-		category: yup.string().required('Category is required'),
+		category: yup
+			.number()
+			.required('Category is required')
+			.min(getEnumMinValue(NoteCategory), 'Invalid category')
+			.max(getEnumMaxValue(NoteCategory), 'Invalid category'),
 	})
 
 	const {
@@ -57,9 +64,6 @@ const CreateNoteForm = () => {
 		reset,
 	} = useForm<CreateNoteType>({
 		mode: 'onChange',
-		defaultValues: {
-			category: '',
-		},
 		resolver: yupResolver(schema),
 	})
 
@@ -68,13 +72,13 @@ const CreateNoteForm = () => {
 	const onSubmit: SubmitHandler<CreateNoteType> = async createNoteData => {
 		try {
 			console.log('createNoteData', createNoteData)
-			// await createNote({
-			// 	title: createNoteData.title,
-			// 	text: createNoteData.text,
-			// 	category: createNoteData.category,
-			// 	userId: user.id,
-			// 	dateOfCreation: new Date(),
-			// })
+			await createNote({
+				title: createNoteData.title,
+				text: createNoteData.text,
+				category: createNoteData.category,
+				userId: user.id,
+				dateOfCreation: new Date(),
+			})
 		} catch (error) {
 			console.log(error)
 		}
@@ -88,12 +92,6 @@ const CreateNoteForm = () => {
 	}, [isSuccess])
 
 	const buttonRef = useRef<HTMLButtonElement>(null)
-
-	useEffect(() => {
-		if (buttonRef.current) {
-			buttonRef.current.disabled = !isValid && isDirty
-		}
-	}, [isValid, isDirty])
 
 	return (
 		<>
@@ -133,7 +131,7 @@ const CreateNoteForm = () => {
 						message={errors.category?.message}
 					/>
 				</div>
-				<PrimaryButton buttonRef={buttonRef} type='submit'>
+				<PrimaryButton disabled={!isValid && isDirty} type='submit'>
 					Create
 				</PrimaryButton>
 			</form>

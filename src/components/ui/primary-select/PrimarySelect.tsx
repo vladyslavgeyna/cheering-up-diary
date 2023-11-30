@@ -25,7 +25,9 @@ const PrimarySelect: FC<{
 	return (
 		<select
 			required={required}
-			value={value}
+			// {...(!value ? { defaultValue: '' } : {})}
+			defaultValue={''}
+			{...(value ? { value: value } : {})}
 			onChange={onChange && (e => onChange(e.target.value))}
 			className={`${styles.select} ${className || ''}`}
 			{...register}>
