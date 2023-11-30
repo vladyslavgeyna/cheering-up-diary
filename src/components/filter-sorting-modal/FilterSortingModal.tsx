@@ -1,6 +1,7 @@
 'use client'
 
 import { useActions } from '@/hooks/useActions'
+import { useTypedSelector } from '@/hooks/useTypedSelector'
 import { NoteCategory } from '@/types/note-category.enum'
 import { getEnumAsISelectItemArray } from '@/utils/enum.utils'
 import { useRouter } from 'next/navigation'
@@ -30,11 +31,17 @@ export const FilterSortingModal: FC<PropsType> = ({
 
 	const { setSelectedCategory, setSelectedOrderByOption } = useActions()
 
+	const { selectedCategory, selectedOrderByOption } = useTypedSelector(
+		state => state.notes,
+	)
+
 	//Додав локальний стейт поверх глобального, щоб спочатку змінювати локальний (при заповненні форми), а лише після відправки форми локальний стейт передавати до глобального
 	//Інакше зміни фільтрації і сортування будуть застосовані одразу навіть без натиснення на кнопку 'Apply'
-	const [selectedCategoryLocally, setSelectedCategoryLocally] = useState('')
+	const [selectedCategoryLocally, setSelectedCategoryLocally] = useState(
+		'' || selectedCategory,
+	)
 	const [selectedOrderByOptionsLocally, setSelectedOrderByOptionsLocally] =
-		useState('')
+		useState('' || selectedOrderByOption)
 
 	const [] = useState('')
 
