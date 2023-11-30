@@ -4,12 +4,7 @@ import useFormError from '@/hooks/useFormError'
 import { useTypedSelector } from '@/hooks/useTypedSelector'
 import { useCreateNoteMutation } from '@/store/api/note'
 import { NoteCategory } from '@/types/note-category.enum'
-import { INote } from '@/types/note.interface'
-import {
-	getEnumAsISelectItemArray,
-	getEnumMaxValue,
-	getEnumMinValue,
-} from '@/utils/enum.utils'
+import { getEnumAsISelectItemArray } from '@/utils/enum.utils'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { redirect, useRouter } from 'next/navigation'
 import { useEffect, useRef } from 'react'
@@ -23,7 +18,11 @@ import PrimarySelect from '../ui/primary-select/PrimarySelect'
 import PrimaryTextarea from '../ui/primary-textarea/PrimaryTextarea'
 import styles from './CreateNoteForm.module.scss'
 
-type CreateNoteType = Omit<Omit<INote, 'dateOfCreation'>, 'userId'>
+type CreateNoteType = {
+	title: string
+	text: string
+	category: string
+}
 
 const CreateNoteForm = () => {
 	const router = useRouter()
@@ -48,12 +47,7 @@ const CreateNoteForm = () => {
 			.required('Text is required')
 			.min(10, 'Min text length is 10')
 			.max(500, 'Max text length is 500'),
-		category: yup
-			.number()
-			.integer()
-			.required('Category is required')
-			.min(getEnumMinValue(NoteCategory), 'Incorrect category')
-			.max(getEnumMaxValue(NoteCategory), 'Incorrect category'),
+		category: yup.string().required('Category is required'),
 	})
 
 	const {
@@ -63,6 +57,9 @@ const CreateNoteForm = () => {
 		reset,
 	} = useForm<CreateNoteType>({
 		mode: 'onChange',
+		defaultValues: {
+			category: '',
+		},
 		resolver: yupResolver(schema),
 	})
 
@@ -70,13 +67,14 @@ const CreateNoteForm = () => {
 
 	const onSubmit: SubmitHandler<CreateNoteType> = async createNoteData => {
 		try {
-			await createNote({
-				title: createNoteData.title,
-				text: createNoteData.text,
-				category: createNoteData.category,
-				userId: user.id,
-				dateOfCreation: new Date(),
-			})
+			console.log('createNoteData', createNoteData)
+			// await createNote({
+			// 	title: createNoteData.title,
+			// 	text: createNoteData.text,
+			// 	category: createNoteData.category,
+			// 	userId: user.id,
+			// 	dateOfCreation: new Date(),
+			// })
 		} catch (error) {
 			console.log(error)
 		}
