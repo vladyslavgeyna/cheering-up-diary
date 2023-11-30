@@ -7,7 +7,7 @@ import Container from '../container/Container'
 import styles from './Header.module.scss'
 
 const Header = () => {
-	const { isAuthenticated, isCheckingAuthFinished, isLoading } =
+	const { isAuthenticated, isCheckingAuthFinished, isLoading, user } =
 		useTypedSelector(state => state.user)
 
 	const { logout } = useActions()
@@ -42,6 +42,9 @@ const Header = () => {
 											type={'button'}>
 											<span>Logout</span>
 										</button>
+										<p className={styles.greeting}>
+											Hello, {user?.username}
+										</p>
 									</>
 								) : (
 									<>
