@@ -1,0 +1,26 @@
+.modalHeader {
+	font-weight: 600;
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+.modalBody {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+.modalFooter {
+	margin-top: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: end;
+	gap: 10px;
+}
+.complexFormItem {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+.footerBtn {
+	font-size: 16px;
+	padding: 5px 10px;
+}

@@ -4,13 +4,14 @@ import { UseFormRegisterReturn } from 'react-hook-form'
 import styles from './PrimarySelect.module.scss'
 
 const PrimarySelect: FC<{
-	onChange?: React.ChangeEventHandler<HTMLSelectElement>
+	onChange?: (value: string) => void
 	className?: string
 	value?: string
 	required?: boolean
 	defaultValue: string
 	register?: UseFormRegisterReturn<string>
 	items: ISelectItem[]
+	isDefaultOptionDisabled?: boolean
 }> = ({
 	onChange,
 	className,
@@ -19,16 +20,16 @@ const PrimarySelect: FC<{
 	defaultValue,
 	register,
 	items,
+	isDefaultOptionDisabled = true,
 }) => {
 	return (
 		<select
-			defaultValue={''}
 			required={required}
 			value={value}
-			onChange={onChange}
+			onChange={onChange && (e => onChange(e.target.value))}
 			className={`${styles.select} ${className || ''}`}
 			{...register}>
-			<option disabled value=''>
+			<option disabled={isDefaultOptionDisabled} value=''>
 				{defaultValue}
 			</option>
 			{items.map(item => (
