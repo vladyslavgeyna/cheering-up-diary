@@ -21,6 +21,20 @@ export enum CarAdsOrderByOptions {
 	'Date of creation, descending',
 }
 
+const orderByOptions = getEnumAsISelectItemArray(CarAdsOrderByOptions)
+
+orderByOptions.unshift({
+	key: '',
+	value: 'By default',
+})
+
+const noteCategories = getEnumAsISelectItemArray(NoteCategory)
+
+noteCategories.unshift({
+	key: '',
+	value: 'All',
+})
+
 export const FilterSortingModal: FC<PropsType> = ({
 	isModalActive,
 	setIsModalActive,
@@ -77,20 +91,20 @@ export const FilterSortingModal: FC<PropsType> = ({
 					<div className={styles.complexFormItem}>
 						Order&nbsp;by:&nbsp;
 						<PrimarySelect
-							items={getEnumAsISelectItemArray(
-								CarAdsOrderByOptions,
-							)}
+							items={orderByOptions}
 							value={selectedOrderByOptionsLocally}
 							defaultValue='By default'
-							isDefaultOptionDisabled={false}
+							isDefaultOptionNeeded={false}
 							onChange={setSelectedOrderByOptionsLocally}
 						/>
 					</div>
-					<div>
+					<div className={styles.complexFormItem}>
+						Note&nbsp;category:&nbsp;
 						<PrimarySelect
-							items={getEnumAsISelectItemArray(NoteCategory)}
-							defaultValue='Choose note category'
+							items={noteCategories}
 							value={selectedCategoryLocally}
+							defaultValue='All'
+							isDefaultOptionNeeded={false}
 							onChange={setSelectedCategoryLocally}
 						/>
 					</div>

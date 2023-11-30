@@ -8,10 +8,11 @@ const PrimarySelect: FC<{
 	className?: string
 	value?: string
 	required?: boolean
-	defaultValue: string
+	defaultValue?: string
 	register?: UseFormRegisterReturn<string>
 	items: ISelectItem[]
 	isDefaultOptionDisabled?: boolean
+	isDefaultOptionNeeded?: boolean
 }> = ({
 	onChange,
 	className,
@@ -21,19 +22,23 @@ const PrimarySelect: FC<{
 	register,
 	items,
 	isDefaultOptionDisabled = true,
+	isDefaultOptionNeeded = true,
 }) => {
 	return (
 		<select
 			required={required}
 			// {...(!value ? { defaultValue: '' } : {})}
-			defaultValue={''}
-			{...(value ? { value: value } : {})}
+			{...(isDefaultOptionNeeded ? { defaultValue: '' } : {})}
+			// defaultValue={''}
+			{...(value !== undefined ? { value: value } : {})}
 			onChange={onChange && (e => onChange(e.target.value))}
 			className={`${styles.select} ${className || ''}`}
 			{...register}>
-			<option disabled={isDefaultOptionDisabled} value=''>
-				{defaultValue}
-			</option>
+			{isDefaultOptionNeeded && (
+				<option disabled={isDefaultOptionDisabled} value={''}>
+					{defaultValue}
+				</option>
+			)}
 			{items.map(item => (
 				<option key={item.key} value={item.key}>
 					{item.value}

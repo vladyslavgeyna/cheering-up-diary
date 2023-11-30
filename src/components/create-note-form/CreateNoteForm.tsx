@@ -11,7 +11,7 @@ import {
 } from '@/utils/enum.utils'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { redirect, useRouter } from 'next/navigation'
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import FormError from '../form-error/FormError'
@@ -90,8 +90,6 @@ const CreateNoteForm = () => {
 			router.push('/')
 		}
 	}, [isSuccess])
-
-	const buttonRef = useRef<HTMLButtonElement>(null)
 
 	return (
 		<>
