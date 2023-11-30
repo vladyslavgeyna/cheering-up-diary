@@ -8,7 +8,6 @@ import { useActions } from '@/hooks/useActions'
 import { useTypedSelector } from '@/hooks/useTypedSelector'
 import { IUser } from '@/types/user.interface'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useRouter } from 'next/navigation'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import * as Yup from 'yup'
 import Loader from '../ui/loader/Loader'
@@ -26,7 +25,6 @@ const validationSchema = Yup.object().shape({
 })
 
 const LoginForm = () => {
-	const router = useRouter()
 	const { isLoading, error } = useTypedSelector(state => state.user)
 
 	const { login } = useActions()
@@ -46,7 +44,6 @@ const LoginForm = () => {
 
 	const onSubmit: SubmitHandler<IUser> = data => {
 		login(data)
-		router.push('/')
 	}
 
 	return (
