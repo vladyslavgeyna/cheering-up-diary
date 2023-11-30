@@ -1,6 +1,12 @@
 import { INote, INoteWithId } from '@/types/note.interface'
 import { api } from './api'
 
+interface IGetNoteByUserIdQueryParams {
+	userId: number
+	page?: number
+	limit?: number
+}
+
 export const noteApi = api.injectEndpoints({
 	endpoints: builder => ({
 		getNotes: builder.query<INoteWithId[], null>({
@@ -11,15 +17,21 @@ export const noteApi = api.injectEndpoints({
 				},
 			],
 		}),
-		getNotesByUserId: builder.query<INoteWithId[], number>({
-			query: userId => `/notes?userId=${userId}`,
-			providesTags: (_result, _error, userId) => [
-				{
-					type: 'Note',
-					id: userId,
-				},
-			],
+		getNotesByUserId: builder.query<
+			INoteWithId[],
+			IGetNoteByUserIdQueryParams
+		>({
+			query: params => {
+				const url = `/notes?userId=${params.userId}&_limit=${
+					params.limit || ''
+				}&_page=${params.page || ''}`
+
+				return {
+					url,
+				}
+			},
 		}),
+
 		getNoteById: builder.query<INoteWithId, number>({
 			query: noteId => `/notes/${noteId}`,
 			providesTags: (_result, _error, noteId) => [
