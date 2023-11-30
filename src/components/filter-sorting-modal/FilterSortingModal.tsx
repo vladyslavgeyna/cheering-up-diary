@@ -1,7 +1,6 @@
 'use client'
 
 import { useActions } from '@/hooks/useActions'
-import { useTypedSelector } from '@/hooks/useTypedSelector'
 import { NoteCategory } from '@/types/note-category.enum'
 import { getEnumAsISelectItemArray } from '@/utils/enum.utils'
 import { useRouter } from 'next/navigation'
@@ -28,10 +27,6 @@ export const FilterSortingModal: FC<PropsType> = ({
 	const router = useRouter()
 
 	const { setCurrentPage } = useActions()
-
-	const { selectedCategory, selectedOrderByOption } = useTypedSelector(
-		state => state.notes,
-	)
 
 	const { setSelectedCategory, setSelectedOrderByOption } = useActions()
 
