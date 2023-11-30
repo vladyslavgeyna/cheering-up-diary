@@ -20,7 +20,7 @@ const Modal: FC<PropsWithChildren<ModalProps>> = ({
 				<button
 					onClick={() => setIsActive(false)}
 					className='close-button'>
-					X
+					⨯
 				</button>
 				{children}
 			</div>

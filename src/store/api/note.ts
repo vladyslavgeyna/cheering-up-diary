@@ -5,6 +5,8 @@ interface IGetNoteByUserIdQueryParams {
 	userId: number
 	page?: number
 	limit?: number
+	category?: string
+	orderByOption?: string
 }
 
 export const noteApi = api.injectEndpoints({
@@ -22,9 +24,21 @@ export const noteApi = api.injectEndpoints({
 			IGetNoteByUserIdQueryParams
 		>({
 			query: params => {
-				const url = `/notes?userId=${params.userId}&_limit=${
+				let url = `/notes?userId=${params.userId}&_limit=${
 					params.limit || ''
 				}&_page=${params.page || ''}`
+
+				if (params.category) {
+					url += `&category=${params.category}`
+				}
+
+				if (params.orderByOption) {
+					if (params.orderByOption === '1') {
+						url += '&_sort=dateOfCreation&_order=asc'
+					} else if (params.orderByOption === '2') {
+						url += '&_sort=dateOfCreation&_order=desc'
+					}
+				}
 
 				return {
 					url,

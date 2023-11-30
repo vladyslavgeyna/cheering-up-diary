@@ -1,22 +1,28 @@
 'use client'
 
+import { FilterSortingModal } from '@/components/filter-sorting-modal/FilterSortingModal'
 import NotesList from '@/components/notes-list/NotesList'
 import Loader from '@/components/ui/loader/Loader'
+import PrimaryButton from '@/components/ui/primary-button/PrimaryButton'
 import PrimaryTitle from '@/components/ui/primary-title/PrimaryTitle'
 import RequireAuth from '@/components/utils/RequireAuth'
 import { useActions } from '@/hooks/useActions'
 import { useTypedSelector } from '@/hooks/useTypedSelector'
 import { useGetNotesByUserIdQuery } from '@/store/api/note'
 import { redirect } from 'next/navigation'
+import { useState } from 'react'
 import { PaginationControl } from 'react-bootstrap-pagination-control'
 import styles from './page.module.scss'
 
 export default function Home() {
 	const { user } = useTypedSelector(state => state.user)
 
-	const { currentPage, limit } = useTypedSelector(state => state.notes)
+	const { currentPage, limit, selectedCategory, selectedOrderByOption } =
+		useTypedSelector(state => state.notes)
 
 	const { setCurrentPage } = useActions()
+
+	const [isModalActive, setIsModalActive] = useState<boolean>(false)
 
 	if (!user) {
 		redirect('/login')
@@ -26,11 +32,14 @@ export default function Home() {
 		userId: user.id,
 		limit,
 		page: currentPage,
+		category: selectedCategory,
+		orderByOption: selectedOrderByOption,
 	})
 
 	const { isLoading: isNotesTotalCountLoading, data: notesTotalCount } =
 		useGetNotesByUserIdQuery({
 			userId: user.id,
+			category: selectedCategory,
 		})
 
 	const deleteNote = (dateOfCreation: Date) => {
@@ -51,9 +60,21 @@ export default function Home() {
 		<RequireAuth>
 			<div className={styles.main}>
 				{doNotesExist && (
-					<PrimaryTitle className={styles.title}>
-						Your notes
-					</PrimaryTitle>
+					<>
+						<PrimaryTitle className={styles.title}>
+							Your notes
+						</PrimaryTitle>
+						<PrimaryButton
+							className={styles.filterSortBtn}
+							onClick={() => setIsModalActive(true)}
+							type='button'>
+							Filtering and sorting
+						</PrimaryButton>
+						<FilterSortingModal
+							isModalActive={isModalActive}
+							setIsModalActive={setIsModalActive}
+						/>
+					</>
 				)}
 				<NotesList notes={data} onDelete={deleteNote} />
 				{doNotesExist && (
