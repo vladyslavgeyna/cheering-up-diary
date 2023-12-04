@@ -48,7 +48,11 @@ const Note: FC<PropsType> = ({ noteId }) => {
 
 	if (error) {
 		if ('status' in error && error.status === 404) {
-			return <h1>The note with id {noteId} was not found</h1>
+			return (
+				!isDeletingNoteStarted && (
+					<h1>The note with id {noteId} was not found</h1>
+				)
+			)
 		}
 
 		return <h1>Some error occurred</h1>
