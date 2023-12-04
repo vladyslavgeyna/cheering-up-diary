@@ -24,7 +24,7 @@ const NotesList: React.FC<PropsType> = ({ notes, onDelete }) => {
 				<NoteItem
 					text={note.text}
 					title={note.title}
-					key={note.dateOfCreation.toString()}
+					key={note.id}
 					note={note}
 					onDelete={onDelete}
 				/>
