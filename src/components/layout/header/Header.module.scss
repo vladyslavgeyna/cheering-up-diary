@@ -5,7 +5,6 @@
 	width: 100%;
 	position: fixed;
 	padding: 12px 0;
-	background-color: $primary-color;
 	color: #fff;
 	z-index: 50;
 }
@@ -47,7 +46,7 @@
 	background-color: #fff;
 	border-radius: $border-radius;
 	&:hover {
-		background-color: $primary-color;
+		background-color: transparent;
 		color: #fff;
 	}
 	span {
@@ -61,4 +60,13 @@
 }
 .greeting {
 	padding-left: 15px;
+}
+.themeSwitchWrapper {
+	p {
+		text-transform: capitalize;
+	}
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	margin-right: 15px;
 }

@@ -1,0 +1,9 @@
+@import '../../../assets/styles/variables.scss';
+
+.light [class*='header'] {
+	background-color: $primary-color;
+}
+
+.dark [class*='header'] {
+	background-color: $primary-color-dark;
+}

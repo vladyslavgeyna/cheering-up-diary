@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import { UseFormRegisterReturn } from 'react-hook-form'
 import styles from './FloatInput.module.scss'
+import './FloatInput.scss'
 
 const FloatInput: FC<{
 	label: string
@@ -18,12 +19,12 @@ const FloatInput: FC<{
 					required={required}
 					value={value}
 					onChange={onChange}
-					className={`${styles.input} ${className || ''}`}
+					className={`${styles.floatInput} ${className || ''}`}
 					type={type}
 					placeholder=' '
 					{...register}
 				/>
-				<label className={styles.label}>{label}</label>
+				<label className={styles.labelFloatInput}>{label}</label>
 			</div>
 		</>
 	)

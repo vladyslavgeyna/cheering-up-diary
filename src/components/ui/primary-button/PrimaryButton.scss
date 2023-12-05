@@ -1,0 +1,23 @@
+@import '../../../assets/styles/variables.scss';
+
+.dark [class*='button'] {
+	border: 4px solid $primary-color-dark;
+	color: white;
+	background-color: $primary-color-dark;
+	&:hover {
+		border: 4px solid $primary-dark;
+		color: white;
+		background-color: $primary-dark;
+	}
+}
+
+.light [class*='button'] {
+	border: 4px solid $primary-color;
+	color: white;
+	background-color: $primary-color;
+	&:hover {
+		border: 4px solid $primary-color;
+		color: $primary-color;
+		background-color: white;
+	}
+}

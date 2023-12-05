@@ -93,7 +93,7 @@ const Note: FC<PropsType> = ({ noteId }) => {
 				</p>
 				<p>{note.text}</p>
 			</div>
-			<div className={styles.buttons}>
+			<div className={styles.btns}>
 				<PrimaryButton
 					onClick={() => handleDelete(note.id)}
 					type='button'>

@@ -1,6 +1,7 @@
 import { FC, PropsWithChildren } from 'react'
 import { UseFormRegisterReturn } from 'react-hook-form'
 import styles from './PrimaryTextarea.module.scss'
+import './PrimaryTextarea.scss'
 
 const PrimaryTextarea: FC<
 	PropsWithChildren<{
@@ -15,7 +16,7 @@ const PrimaryTextarea: FC<
 			<textarea
 				required={required}
 				onChange={onChange}
-				className={`${styles.textArea} ${className || ''}`}
+				className={`${styles.primaryTextArea} ${className || ''}`}
 				{...register}>
 				{children}
 			</textarea>

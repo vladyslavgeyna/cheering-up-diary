@@ -18,6 +18,7 @@ const Modal: FC<PropsWithChildren<ModalProps>> = ({
 			onClick={() => setIsActive(false)}>
 			<div className={'content'} onClick={e => e.stopPropagation()}>
 				<button
+					type='button'
 					onClick={() => setIsActive(false)}
 					className='close-button'>
 					⨯

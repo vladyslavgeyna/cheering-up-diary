@@ -5,7 +5,7 @@
 	justify-content: center;
 	align-items: center;
 }
-.input {
+.floatInput {
 	border-radius: $border-radius;
 	width: 100%;
 	padding: 12px 15px;
@@ -26,7 +26,7 @@
 	}
 }
 
-.label {
+.labelFloatInput {
 	font-weight: 600;
 	position: absolute;
 	left: 0;

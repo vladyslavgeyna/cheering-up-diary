@@ -2,6 +2,7 @@ import { ISelectItem } from '@/types/select-item.interface'
 import { FC } from 'react'
 import { UseFormRegisterReturn } from 'react-hook-form'
 import styles from './PrimarySelect.module.scss'
+import './PrimarySelect.scss'
 
 const PrimarySelect: FC<{
 	onChange?: (value: string) => void

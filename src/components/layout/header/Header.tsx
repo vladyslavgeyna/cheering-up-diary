@@ -3,10 +3,16 @@ import { useActions } from '@/hooks/useActions'
 import { useTypedSelector } from '@/hooks/useTypedSelector'
 import Link from 'next/link'
 import { redirect } from 'next/navigation'
+import { useContext } from 'react'
+import ReactSwitch from 'react-switch'
 import Container from '../container/Container'
+import { ThemeContext } from '../wrapper/Wrapper'
 import styles from './Header.module.scss'
+import './Header.scss'
 
 const Header = () => {
+	const currentTheme = useContext(ThemeContext)
+
 	const { isAuthenticated, isCheckingAuthFinished, isLoading, user } =
 		useTypedSelector(state => state.user)
 
@@ -27,6 +33,13 @@ const Header = () => {
 						</Link>
 						<div className={styles.blockChild}>
 							<div className={styles.linksWrapper}>
+								<div className={styles.themeSwitchWrapper}>
+									<p>{currentTheme.theme} mode</p>
+									<ReactSwitch
+										checked={currentTheme.theme === 'dark'}
+										onChange={currentTheme?.toggleTheme}
+									/>
+								</div>
 								{isLoading || !isCheckingAuthFinished ? (
 									''
 								) : isAuthenticated ? (

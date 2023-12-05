@@ -1,5 +1,6 @@
 import { FC, PropsWithChildren } from 'react'
 import styles from './PrimaryButton.module.scss'
+import './PrimaryButton.scss'
 
 const PrimaryButton: FC<
 	PropsWithChildren<{

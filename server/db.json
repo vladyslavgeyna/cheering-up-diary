@@ -281,12 +281,12 @@
       "userId": 1
     },
     {
+      "id": 36,
       "title": "Dimon note",
-      "text": "Dimon note text",
+      "text": "Dimon note text123",
       "category": 1,
       "userId": 4,
-      "dateOfCreation": "2023-12-05T11:56:46.008Z",
-      "id": 36
+      "dateOfCreation": "2023-12-05T11:56:46.008Z"
     }
   ],
   "users": [
