@@ -1,3 +1,5 @@
+@import '../../assets/styles/variables.scss';
+
 .notesWrapper {
 	margin: 0 auto;
 	width: 100%;
@@ -8,6 +10,17 @@
 }
 
 .emptyList {
+	div {
+		padding: 10px 0;
+	}
+	a {
+		font-weight: 900;
+		transition: $transition;
+		color: $primary-color;
+		&:hover {
+			color: $primary-color-hover;
+		}
+	}
 	text-align: center;
 	font-size: 30px;
 	font-weight: bold;

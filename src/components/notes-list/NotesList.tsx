@@ -2,6 +2,7 @@
 
 import styles from '@/components/notes-list/NotesList.module.scss'
 import { INoteWithId } from '@/types/note.interface'
+import Link from 'next/link'
 import NoteItem from '../note-item/NoteItem'
 
 type PropsType = {
@@ -14,7 +15,14 @@ const NotesList: React.FC<PropsType> = ({ notes, onDelete }) => {
 
 	if (notes.length === 0) {
 		return (
-			<div className={styles.emptyList}>The list of notes is empty</div>
+			<div className={styles.emptyList}>
+				<div>
+					At the moment there are no notes or they were not found
+				</div>
+				<div>
+					But you can <Link href={'/note/create'}>create one</Link>
+				</div>
+			</div>
 		)
 	}
 

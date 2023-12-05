@@ -61,16 +61,23 @@ const HomePage = () => {
 					<PrimaryTitle className={styles.title}>
 						Your notes
 					</PrimaryTitle>
-					<PrimaryButton
-						className={styles.filterSortBtn}
-						onClick={() => setIsModalActive(true)}
-						type='button'>
-						Filtering and sorting
-					</PrimaryButton>
+
 					<FilterSortingModal
 						isModalActive={isModalActive}
 						setIsModalActive={setIsModalActive}
 					/>
+					<div className={styles.topBlock}>
+						<PrimaryButton
+							className={styles.filterSortBtn}
+							onClick={() => setIsModalActive(true)}
+							type='button'>
+							Filtering and sorting
+						</PrimaryButton>
+						<p>
+							Count of notes were found for your request:{' '}
+							<span>{notesTotalCount?.length || 0}</span>
+						</p>
+					</div>
 				</>
 			)}
 			<NotesList notes={data} onDelete={deleteNote} />

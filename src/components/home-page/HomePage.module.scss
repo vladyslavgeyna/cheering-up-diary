@@ -14,3 +14,16 @@
 	font-size: 16px;
 	margin-bottom: 15px;
 }
+.topBlock {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 15px;
+	p {
+		font-size: 24px;
+		font-weight: bold;
+		span {
+			font-weight: 900;
+		}
+	}
+}
