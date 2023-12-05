@@ -3,6 +3,7 @@
 import { FC, useEffect, useState } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import styles from './Loader.module.scss'
+import './Loader.scss'
 
 const Loader: FC<{ text: string }> = ({ text }) => {
 	const [isEnter, setIsEnter] = useState(true)
@@ -60,7 +61,7 @@ const Loader: FC<{ text: string }> = ({ text }) => {
 						</g>
 					</g>
 				</svg>
-				<p className={styles.text}>{text}</p>
+				<p className={styles.loaderText}>{text}</p>
 			</div>
 		</CSSTransition>
 	)
