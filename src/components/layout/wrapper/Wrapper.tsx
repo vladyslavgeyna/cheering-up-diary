@@ -22,7 +22,7 @@ const Wrapper: FC<PropsWithChildren> = ({ children }) => {
 		setIsCheckingAuthFinished(true)
 	})
 
-	return <div>{children}</div>
+	return <>{children}</>
 }
 
 export default Wrapper
