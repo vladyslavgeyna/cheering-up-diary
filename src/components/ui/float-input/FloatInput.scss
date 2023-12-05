@@ -1,0 +1,22 @@
+@import '../../../assets/styles/variables.scss';
+
+.dark [class*='floatInput'] {
+	background-color: $primary-dark;
+	color: white;
+}
+.dark [class*='labelFloatInput'] {
+	color: white;
+	background-color: transparent;
+}
+.dark [class*='floatInput'] {
+	border: 1px solid #dadce0;
+	&:focus {
+		border: 1px solid #808080;
+	}
+
+	&:not(:placeholder-shown) + label,
+	&:focus + label {
+		color: white !important;
+		background-color: $primary-dark !important;
+	}
+}

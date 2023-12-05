@@ -37,17 +37,15 @@
 		text-transform: none;
 	}
 }
-.buttons {
+.btns {
 	margin-top: 50px;
 	display: flex;
 	align-items: center;
 	gap: 10px;
 	a {
-		display: block;
 		padding: 8.4px 10px;
 	}
 	button {
-		display: block;
 		padding: 5px 10px;
 	}
 }

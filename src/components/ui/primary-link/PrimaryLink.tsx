@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { FC, PropsWithChildren } from 'react'
 import styles from './PrimaryLink.module.scss'
+import './PrimaryLink.scss'
 
 const PrimaryLink: FC<
 	PropsWithChildren<{
@@ -9,7 +10,9 @@ const PrimaryLink: FC<
 	}>
 > = ({ children, className, href }) => {
 	return (
-		<Link className={`${className || ''} ${styles.button}`} href={href}>
+		<Link
+			className={`${className || ''} ${styles.primaryLink}`}
+			href={href}>
 			{children}
 		</Link>
 	)

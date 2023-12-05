@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import { UseFormRegisterReturn } from 'react-hook-form'
 import styles from './PrimaryInput.module.scss'
+import './PrimaryInput.scss'
 
 const PrimaryInput: FC<{
 	type: React.HTMLInputTypeAttribute
@@ -25,7 +26,7 @@ const PrimaryInput: FC<{
 				required={required}
 				value={value}
 				onChange={onChange}
-				className={`${styles.input} ${className || ''}`}
+				className={`${styles.primaryInput} ${className || ''}`}
 				type={type}
 				placeholder={placeholder}
 				{...register}

@@ -1,0 +1,6 @@
+@import '../../../assets/styles/variables.scss';
+
+.dark [class*='primaryInput'] {
+	background-color: $primary-dark;
+	color: white;
+}
