@@ -9,7 +9,7 @@ interface INotesState {
 
 const initialState: INotesState = {
 	currentPage: 1,
-	limit: 2,
+	limit: 6,
 	selectedCategory: '',
 	selectedOrderByOption: '',
 }
