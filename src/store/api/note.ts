@@ -11,7 +11,7 @@ interface IGetNoteByUserIdQueryParams {
 
 export const noteApi = api.injectEndpoints({
 	endpoints: builder => ({
-		getNotes: builder.query<INoteWithId[], null>({
+		getNotes: builder.query<INoteWithId[], void>({
 			query: () => '/notes',
 			providesTags: () => [
 				{
@@ -44,6 +44,16 @@ export const noteApi = api.injectEndpoints({
 					url,
 				}
 			},
+			providesTags: (result, error, arg) =>
+				result
+					? [
+							...result.map(({ id }) => ({
+								type: 'Note' as const,
+								id,
+							})),
+							'Note',
+					  ]
+					: ['Note'],
 		}),
 
 		getNoteById: builder.query<INoteWithId, number>({
