@@ -71,7 +71,6 @@ const CreateNoteForm = () => {
 
 	const onSubmit: SubmitHandler<CreateNoteType> = async createNoteData => {
 		try {
-			console.log('createNoteData', createNoteData)
 			await createNote({
 				title: createNoteData.title,
 				text: createNoteData.text,
