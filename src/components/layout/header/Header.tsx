@@ -6,7 +6,7 @@ import { redirect } from 'next/navigation'
 import { useContext } from 'react'
 import ReactSwitch from 'react-switch'
 import Container from '../container/Container'
-import { ThemeContext } from '../wrapper/Wrapper'
+import { ThemeContext } from '../theme-wrapper/ThemeWrapper'
 import styles from './Header.module.scss'
 import './Header.scss'
 
