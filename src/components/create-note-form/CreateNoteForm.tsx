@@ -4,6 +4,7 @@ import useFormError from '@/hooks/useFormError'
 import { useTypedSelector } from '@/hooks/useTypedSelector'
 import { useCreateNoteMutation } from '@/store/api/note'
 import { NoteCategory } from '@/types/note-category.enum'
+import { NoteColor } from '@/types/note-color.enum'
 import {
 	getEnumAsISelectItemArray,
 	getEnumMaxValue,
@@ -26,6 +27,7 @@ type CreateNoteType = {
 	title: string
 	text: string
 	category: NoteCategory
+	color: NoteColor
 }
 
 const CreateNoteForm = () => {
@@ -55,6 +57,11 @@ const CreateNoteForm = () => {
 			.required('Category is required')
 			.min(getEnumMinValue(NoteCategory), 'Invalid category')
 			.max(getEnumMaxValue(NoteCategory), 'Invalid category'),
+		color: yup
+			.number()
+			.required('Color is required')
+			.min(getEnumMinValue(NoteColor), 'Invalid color')
+			.max(getEnumMaxValue(NoteColor), 'Invalid color'),
 	})
 
 	const {
@@ -77,6 +84,7 @@ const CreateNoteForm = () => {
 				category: createNoteData.category,
 				userId: user.id,
 				dateOfCreation: new Date(),
+				color: createNoteData.color,
 			})
 		} catch (error) {
 			console.log(error)
@@ -126,6 +134,19 @@ const CreateNoteForm = () => {
 					<FormError
 						className={styles.formError}
 						message={errors.category?.message}
+					/>
+				</div>
+				<div className={styles.formItem}>
+					<p className={styles.formLabel}>Note color</p>
+					<PrimarySelect
+						className='colored'
+						items={getEnumAsISelectItemArray(NoteColor)}
+						register={register('color')}
+						isDefaultOptionNeeded={false}
+					/>
+					<FormError
+						className={styles.formError}
+						message={errors.color?.message}
 					/>
 				</div>
 				<PrimaryButton disabled={!isValid && isDirty} type='submit'>

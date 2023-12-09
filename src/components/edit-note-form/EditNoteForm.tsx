@@ -4,6 +4,7 @@ import useFormError from '@/hooks/useFormError'
 import { useTypedSelector } from '@/hooks/useTypedSelector'
 import { useGetNoteByIdQuery, useUpdateNoteMutation } from '@/store/api/note'
 import { NoteCategory } from '@/types/note-category.enum'
+import { NoteColor } from '@/types/note-color.enum'
 import {
 	getEnumAsISelectItemArray,
 	getEnumMaxValue,
@@ -26,6 +27,7 @@ type EditNoteType = {
 	title: string
 	text: string
 	category: NoteCategory
+	color: NoteColor
 }
 
 type PropsType = {
@@ -57,6 +59,11 @@ const EditNoteForm: FC<PropsType> = ({ noteId }) => {
 			.required('Category is required')
 			.min(getEnumMinValue(NoteCategory), 'Invalid category')
 			.max(getEnumMaxValue(NoteCategory), 'Invalid category'),
+		color: yup
+			.number()
+			.required('Color is required')
+			.min(getEnumMinValue(NoteColor), 'Invalid color')
+			.max(getEnumMaxValue(NoteColor), 'Invalid color'),
 	})
 
 	const { getErrorComponent } = useFormError()
@@ -77,6 +84,7 @@ const EditNoteForm: FC<PropsType> = ({ noteId }) => {
 			text: note?.text,
 			title: note?.title,
 			category: note?.category,
+			color: note?.color,
 		},
 		resolver: yupResolver(schema),
 	})
@@ -113,6 +121,7 @@ const EditNoteForm: FC<PropsType> = ({ noteId }) => {
 				category: editNoteData.category,
 				userId: user.id,
 				dateOfCreation: note.dateOfCreation,
+				color: editNoteData.color,
 			})
 		} catch (error) {
 			console.log(error)
@@ -154,6 +163,19 @@ const EditNoteForm: FC<PropsType> = ({ noteId }) => {
 					<FormError
 						className={styles.formError}
 						message={errors.category?.message}
+					/>
+				</div>
+				<div className={styles.formItem}>
+					<p className={styles.formLabel}>Note color</p>
+					<PrimarySelect
+						className='colored'
+						items={getEnumAsISelectItemArray(NoteColor)}
+						register={register('color')}
+						isDefaultOptionNeeded={false}
+					/>
+					<FormError
+						className={styles.formError}
+						message={errors.color?.message}
 					/>
 				</div>
 				<PrimaryButton disabled={!isValid && isDirty} type='submit'>
