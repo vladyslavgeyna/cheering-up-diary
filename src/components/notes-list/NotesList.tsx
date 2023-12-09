@@ -7,10 +7,9 @@ import NoteItem from '../note-item/NoteItem'
 
 type PropsType = {
 	notes: INoteWithId[] | undefined
-	onDelete: (dateOfCreation: Date) => void
 }
 
-const NotesList: React.FC<PropsType> = ({ notes, onDelete }) => {
+const NotesList: React.FC<PropsType> = ({ notes }) => {
 	if (notes == undefined) return
 
 	if (notes.length === 0) {
@@ -34,7 +33,6 @@ const NotesList: React.FC<PropsType> = ({ notes, onDelete }) => {
 					title={note.title}
 					key={note.id}
 					note={note}
-					onDelete={onDelete}
 				/>
 			))}
 		</div>

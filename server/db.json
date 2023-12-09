@@ -1,314 +1,350 @@
 {
-  "notes": [
-    {
-      "id": 1,
-      "title": "Thanksgiving Reflections",
-      "text": "Reflecting on the blessings and thankful for the people in my life.",
-      "dateOfCreation": "2023-11-23T10:30:00.000Z",
-      "category": 1,
-      "userId": 1
-    },
-    {
-      "id": 2,
-      "title": "Random Thoughts",
-      "text": "Exploring the depths of my mind and jotting down random thoughts.",
-      "dateOfCreation": "2023-11-25T12:45:00.000Z",
-      "category": 2,
-      "userId": 1
-    },
-    {
-      "id": 3,
-      "title": "Gratitude Journal",
-      "text": "Expressing gratitude for the simple joys and moments in life.",
-      "dateOfCreation": "2023-11-27T14:20:00.000Z",
-      "category": 1,
-      "userId": 1
-    },
-    {
-      "id": 4,
-      "title": "Creative Ideas",
-      "text": "Brainstorming and documenting creative ideas for future projects.",
-      "dateOfCreation": "2023-11-29T09:10:00.000Z",
-      "category": 2,
-      "userId": 1
-    },
-    {
-      "id": 5,
-      "title": "Reflections on Nature",
-      "text": "Connecting with nature and reflecting on its beauty and significance.",
-      "dateOfCreation": "2023-12-01T16:55:00.000Z",
-      "category": 1,
-      "userId": 1
-    },
-    {
-      "id": 6,
-      "title": "Thanksgiving Reflections",
-      "text": "Reflecting on the blessings and thankful for the people in my life.",
-      "dateOfCreation": "2023-11-23T10:30:00.000Z",
-      "category": 1,
-      "userId": 1
-    },
-    {
-      "id": 7,
-      "title": "Random Thoughts",
-      "text": "Exploring the depths of my mind and jotting down random thoughts.",
-      "dateOfCreation": "2023-11-25T12:45:00.000Z",
-      "category": 2,
-      "userId": 1
-    },
-    {
-      "id": 8,
-      "title": "Gratitude Journal",
-      "text": "Expressing gratitude for the simple joys and moments in life.",
-      "dateOfCreation": "2023-11-27T14:20:00.000Z",
-      "category": 1,
-      "userId": 1
-    },
-    {
-      "id": 9,
-      "title": "Creative Ideas",
-      "text": "Brainstorming and documenting creative ideas for future projects.",
-      "dateOfCreation": "2023-11-29T09:10:00.000Z",
-      "category": 2,
-      "userId": 1
-    },
-    {
-      "id": 10,
-      "title": "Reflections on Nature",
-      "text": "Connecting with nature and reflecting on its beauty and significance.",
-      "dateOfCreation": "2023-12-01T16:55:00.000Z",
-      "category": 1,
-      "userId": 1
-    },
-    {
-      "id": 11,
-      "title": "Thanksgiving Reflections",
-      "text": "Reflecting on the blessings and thankful for the people in my life.",
-      "dateOfCreation": "2023-11-23T10:30:00.000Z",
-      "category": 1,
-      "userId": 1
-    },
-    {
-      "id": 12,
-      "title": "Random Thoughts",
-      "text": "Exploring the depths of my mind and jotting down random thoughts.",
-      "dateOfCreation": "2023-11-25T12:45:00.000Z",
-      "category": 2,
-      "userId": 1
-    },
-    {
-      "id": 13,
-      "title": "Gratitude Journal",
-      "text": "Expressing gratitude for the simple joys and moments in life.",
-      "dateOfCreation": "2023-11-27T14:20:00.000Z",
-      "category": 1,
-      "userId": 1
-    },
-    {
-      "id": 14,
-      "title": "Creative Ideas",
-      "text": "Brainstorming and documenting creative ideas for future projects.",
-      "dateOfCreation": "2023-11-29T09:10:00.000Z",
-      "category": 2,
-      "userId": 1
-    },
-    {
-      "id": 15,
-      "title": "Reflections on Nature",
-      "text": "Connecting with nature and reflecting on its beauty and significance.",
-      "dateOfCreation": "2023-12-01T16:55:00.000Z",
-      "category": 1,
-      "userId": 1
-    },
-    {
-      "id": 16,
-      "title": "Thanksgiving Reflections",
-      "text": "Reflecting on the blessings and thankful for the people in my life.",
-      "dateOfCreation": "2023-11-23T10:30:00.000Z",
-      "category": 1,
-      "userId": 1
-    },
-    {
-      "id": 17,
-      "title": "Random Thoughts",
-      "text": "Exploring the depths of my mind and jotting down random thoughts.",
-      "dateOfCreation": "2023-11-25T12:45:00.000Z",
-      "category": 2,
-      "userId": 1
-    },
-    {
-      "id": 18,
-      "title": "Gratitude Journal",
-      "text": "Expressing gratitude for the simple joys and moments in life.",
-      "dateOfCreation": "2023-11-27T14:20:00.000Z",
-      "category": 1,
-      "userId": 1
-    },
-    {
-      "id": 19,
-      "title": "Creative Ideas",
-      "text": "Brainstorming and documenting creative ideas for future projects.",
-      "dateOfCreation": "2023-11-29T09:10:00.000Z",
-      "category": 2,
-      "userId": 1
-    },
-    {
-      "id": 20,
-      "title": "Reflections on Nature",
-      "text": "Connecting with nature and reflecting on its beauty and significance.",
-      "dateOfCreation": "2023-12-01T16:55:00.000Z",
-      "category": 1,
-      "userId": 1
-    },
-    {
-      "id": 21,
-      "title": "Thanksgiving Reflections",
-      "text": "Reflecting on the blessings and thankful for the people in my life.",
-      "dateOfCreation": "2023-11-23T10:30:00.000Z",
-      "category": 1,
-      "userId": 1
-    },
-    {
-      "id": 22,
-      "title": "Random Thoughts",
-      "text": "Exploring the depths of my mind and jotting down random thoughts.",
-      "dateOfCreation": "2023-11-25T12:45:00.000Z",
-      "category": 2,
-      "userId": 1
-    },
-    {
-      "id": 23,
-      "title": "Gratitude Journal",
-      "text": "Expressing gratitude for the simple joys and moments in life.",
-      "dateOfCreation": "2023-11-27T14:20:00.000Z",
-      "category": 1,
-      "userId": 1
-    },
-    {
-      "id": 24,
-      "title": "Creative Ideas",
-      "text": "Brainstorming and documenting creative ideas for future projects.",
-      "dateOfCreation": "2023-11-29T09:10:00.000Z",
-      "category": 2,
-      "userId": 1
-    },
-    {
-      "id": 25,
-      "title": "Reflections on Nature",
-      "text": "Connecting with nature and reflecting on its beauty and significance.",
-      "dateOfCreation": "2023-12-01T16:55:00.000Z",
-      "category": 1,
-      "userId": 1
-    },
-    {
-      "id": 26,
-      "title": "Thanksgiving Reflections",
-      "text": "Reflecting on the blessings and thankful for the people in my life.",
-      "dateOfCreation": "2023-11-23T10:30:00.000Z",
-      "category": 1,
-      "userId": 1
-    },
-    {
-      "id": 27,
-      "title": "Random Thoughts",
-      "text": "Exploring the depths of my mind and jotting down random thoughts.",
-      "dateOfCreation": "2023-11-25T12:45:00.000Z",
-      "category": 2,
-      "userId": 1
-    },
-    {
-      "id": 28,
-      "title": "Gratitude Journal",
-      "text": "Expressing gratitude for the simple joys and moments in life.",
-      "dateOfCreation": "2023-11-27T14:20:00.000Z",
-      "category": 1,
-      "userId": 1
-    },
-    {
-      "id": 29,
-      "title": "Creative Ideas",
-      "text": "Brainstorming and documenting creative ideas for future projects.",
-      "dateOfCreation": "2023-11-29T09:10:00.000Z",
-      "category": 2,
-      "userId": 1
-    },
-    {
-      "id": 30,
-      "title": "Reflections on Nature",
-      "text": "Connecting with nature and reflecting on its beauty and significance.",
-      "dateOfCreation": "2023-12-01T16:55:00.000Z",
-      "category": 1,
-      "userId": 1
-    },
-    {
-      "id": 31,
-      "title": "Thanksgiving Reflections",
-      "text": "Reflecting on the blessings and thankful for the people in my life.",
-      "dateOfCreation": "2023-11-23T10:30:00.000Z",
-      "category": 1,
-      "userId": 1
-    },
-    {
-      "id": 32,
-      "title": "Random Thoughts",
-      "text": "Exploring the depths of my mind and jotting down random thoughts.",
-      "dateOfCreation": "2023-11-25T12:45:00.000Z",
-      "category": 2,
-      "userId": 1
-    },
-    {
-      "id": 33,
-      "title": "Gratitude Journal",
-      "text": "Expressing gratitude for the simple joys and moments in life.",
-      "dateOfCreation": "2023-11-27T14:20:00.000Z",
-      "category": 1,
-      "userId": 1
-    },
-    {
-      "id": 34,
-      "title": "Creative Ideas",
-      "text": "Brainstorming and documenting creative ideas for future projects.",
-      "dateOfCreation": "2023-11-29T09:10:00.000Z",
-      "category": 2,
-      "userId": 1
-    },
-    {
-      "id": 35,
-      "title": "Reflections on Nature",
-      "text": "Connecting with nature and reflecting on its beauty and significance.",
-      "dateOfCreation": "2023-12-01T16:55:00.000Z",
-      "category": 1,
-      "userId": 1
-    },
-    {
-      "id": 36,
-      "title": "Dimon note",
-      "text": "Dimon note text123",
-      "category": 1,
-      "userId": 4,
-      "dateOfCreation": "2023-12-05T11:56:46.008Z"
-    }
-  ],
-  "users": [
-    {
-      "id": 1,
-      "username": "ishak",
-      "password": "123456"
-    },
-    {
-      "username": "vladg",
-      "password": "123123",
-      "id": 2
-    },
-    {
-      "username": "vladgeinf",
-      "password": "123123",
-      "id": 3
-    },
-    {
-      "password": "123123",
-      "username": "dimon",
-      "id": 4
-    }
-  ]
+	"notes": [
+		{
+			"id": 1,
+			"title": "Thanksgiving Reflections",
+			"text": "Reflecting on the blessings and thankful for the people in my life.",
+			"dateOfCreation": "2023-11-23T10:30:00.000Z",
+			"category": 1,
+			"userId": 1,
+			"color": 6
+		},
+		{
+			"id": 2,
+			"title": "Random Thoughts",
+			"text": "Exploring the depths of my mind and jotting down random thoughts.",
+			"dateOfCreation": "2023-11-25T12:45:00.000Z",
+			"category": 2,
+			"userId": 1,
+			"color": 2
+		},
+		{
+			"id": 3,
+			"title": "Gratitude Journal",
+			"text": "Expressing gratitude for the simple joys and moments in life.",
+			"dateOfCreation": "2023-11-27T14:20:00.000Z",
+			"category": 1,
+			"userId": 1,
+			"color": 1
+		},
+		{
+			"id": 4,
+			"title": "Creative Ideas",
+			"text": "Brainstorming and documenting creative ideas for future projects.",
+			"dateOfCreation": "2023-11-29T09:10:00.000Z",
+			"category": 2,
+			"userId": 1,
+			"color": 3
+		},
+		{
+			"id": 5,
+			"title": "Reflections on Nature",
+			"text": "Connecting with nature and reflecting on its beauty and significance.",
+			"dateOfCreation": "2023-12-01T16:55:00.000Z",
+			"category": 1,
+			"userId": 1,
+			"color": 5
+		},
+		{
+			"id": 6,
+			"title": "Thanksgiving Reflections",
+			"text": "Reflecting on the blessings and thankful for the people in my life.",
+			"dateOfCreation": "2023-11-23T10:30:00.000Z",
+			"category": 1,
+			"userId": 1,
+			"color": 7
+		},
+		{
+			"id": 7,
+			"title": "Random Thoughts",
+			"text": "Exploring the depths of my mind and jotting down random thoughts.",
+			"dateOfCreation": "2023-11-25T12:45:00.000Z",
+			"category": 2,
+			"userId": 1,
+			"color": 6
+		},
+		{
+			"id": 8,
+			"title": "Gratitude Journal",
+			"text": "Expressing gratitude for the simple joys and moments in life.",
+			"dateOfCreation": "2023-11-27T14:20:00.000Z",
+			"category": 1,
+			"userId": 1,
+			"color": 1
+		},
+		{
+			"id": 9,
+			"title": "Creative Ideas",
+			"text": "Brainstorming and documenting creative ideas for future projects.",
+			"dateOfCreation": "2023-11-29T09:10:00.000Z",
+			"category": 2,
+			"userId": 1,
+			"color": 3
+		},
+		{
+			"id": 10,
+			"title": "Reflections on Nature",
+			"text": "Connecting with nature and reflecting on its beauty and significance.",
+			"dateOfCreation": "2023-12-01T16:55:00.000Z",
+			"category": 1,
+			"userId": 1,
+			"color": 4
+		},
+		{
+			"id": 11,
+			"title": "Thanksgiving Reflections",
+			"text": "Reflecting on the blessings and thankful for the people in my life.",
+			"dateOfCreation": "2023-11-23T10:30:00.000Z",
+			"category": 1,
+			"userId": 1,
+			"color": 6
+		},
+		{
+			"id": 12,
+			"title": "Random Thoughts",
+			"text": "Exploring the depths of my mind and jotting down random thoughts.",
+			"dateOfCreation": "2023-11-25T12:45:00.000Z",
+			"category": 2,
+			"userId": 1,
+			"color": 2
+		},
+		{
+			"id": 13,
+			"title": "Gratitude Journal",
+			"text": "Expressing gratitude for the simple joys and moments in life.",
+			"dateOfCreation": "2023-11-27T14:20:00.000Z",
+			"category": 1,
+			"userId": 1,
+			"color": 2
+		},
+		{
+			"id": 14,
+			"title": "Creative Ideas",
+			"text": "Brainstorming and documenting creative ideas for future projects.",
+			"dateOfCreation": "2023-11-29T09:10:00.000Z",
+			"category": 2,
+			"userId": 1,
+			"color": 1
+		},
+		{
+			"id": 15,
+			"title": "Reflections on Nature",
+			"text": "Connecting with nature and reflecting on its beauty and significance.",
+			"dateOfCreation": "2023-12-01T16:55:00.000Z",
+			"category": 1,
+			"userId": 1,
+			"color": 4
+		},
+		{
+			"id": 16,
+			"title": "Thanksgiving Reflections",
+			"text": "Reflecting on the blessings and thankful for the people in my life.",
+			"dateOfCreation": "2023-11-23T10:30:00.000Z",
+			"category": 1,
+			"userId": 1,
+			"color": 4
+		},
+		{
+			"id": 17,
+			"title": "Random Thoughts",
+			"text": "Exploring the depths of my mind and jotting down random thoughts.",
+			"dateOfCreation": "2023-11-25T12:45:00.000Z",
+			"category": 2,
+			"userId": 1,
+			"color": 7
+		},
+		{
+			"id": 18,
+			"title": "Gratitude Journal",
+			"text": "Expressing gratitude for the simple joys and moments in life.",
+			"dateOfCreation": "2023-11-27T14:20:00.000Z",
+			"category": 1,
+			"userId": 1,
+			"color": 5
+		},
+		{
+			"id": 19,
+			"title": "Creative Ideas",
+			"text": "Brainstorming and documenting creative ideas for future projects.",
+			"dateOfCreation": "2023-11-29T09:10:00.000Z",
+			"category": 2,
+			"userId": 1,
+			"color": 1
+		},
+		{
+			"id": 20,
+			"title": "Reflections on Nature",
+			"text": "Connecting with nature and reflecting on its beauty and significance.",
+			"dateOfCreation": "2023-12-01T16:55:00.000Z",
+			"category": 1,
+			"userId": 1,
+			"color": 2
+		},
+		{
+			"id": 21,
+			"title": "Thanksgiving Reflections",
+			"text": "Reflecting on the blessings and thankful for the people in my life.",
+			"dateOfCreation": "2023-11-23T10:30:00.000Z",
+			"category": 1,
+			"userId": 1,
+			"color": 7
+		},
+		{
+			"id": 22,
+			"title": "Random Thoughts",
+			"text": "Exploring the depths of my mind and jotting down random thoughts.",
+			"dateOfCreation": "2023-11-25T12:45:00.000Z",
+			"category": 2,
+			"userId": 1,
+			"color": 2
+		},
+		{
+			"id": 23,
+			"title": "Gratitude Journal",
+			"text": "Expressing gratitude for the simple joys and moments in life.",
+			"dateOfCreation": "2023-11-27T14:20:00.000Z",
+			"category": 1,
+			"userId": 1,
+			"color": 3
+		},
+		{
+			"id": 24,
+			"title": "Creative Ideas",
+			"text": "Brainstorming and documenting creative ideas for future projects.",
+			"dateOfCreation": "2023-11-29T09:10:00.000Z",
+			"category": 2,
+			"userId": 1,
+			"color": 3
+		},
+		{
+			"id": 25,
+			"title": "Reflections on Nature",
+			"text": "Connecting with nature and reflecting on its beauty and significance.",
+			"dateOfCreation": "2023-12-01T16:55:00.000Z",
+			"category": 1,
+			"userId": 1,
+			"color": 4
+		},
+		{
+			"id": 26,
+			"title": "Thanksgiving Reflections",
+			"text": "Reflecting on the blessings and thankful for the people in my life.",
+			"dateOfCreation": "2023-11-23T10:30:00.000Z",
+			"category": 1,
+			"userId": 1,
+			"color": 1
+		},
+		{
+			"id": 27,
+			"title": "Random Thoughts",
+			"text": "Exploring the depths of my mind and jotting down random thoughts.",
+			"dateOfCreation": "2023-11-25T12:45:00.000Z",
+			"category": 2,
+			"userId": 1,
+			"color": 6
+		},
+		{
+			"id": 28,
+			"title": "Gratitude Journal",
+			"text": "Expressing gratitude for the simple joys and moments in life.",
+			"dateOfCreation": "2023-11-27T14:20:00.000Z",
+			"category": 1,
+			"userId": 1,
+			"color": 6
+		},
+		{
+			"id": 29,
+			"title": "Creative Ideas",
+			"text": "Brainstorming and documenting creative ideas for future projects.",
+			"dateOfCreation": "2023-11-29T09:10:00.000Z",
+			"category": 2,
+			"userId": 1,
+			"color": 5
+		},
+		{
+			"id": 30,
+			"title": "Reflections on Nature",
+			"text": "Connecting with nature and reflecting on its beauty and significance.",
+			"dateOfCreation": "2023-12-01T16:55:00.000Z",
+			"category": 1,
+			"userId": 1,
+			"color": 4
+		},
+		{
+			"id": 31,
+			"title": "Thanksgiving Reflections",
+			"text": "Reflecting on the blessings and thankful for the people in my life.",
+			"dateOfCreation": "2023-11-23T10:30:00.000Z",
+			"category": 1,
+			"userId": 1,
+			"color": 2
+		},
+		{
+			"id": 32,
+			"title": "Random Thoughts",
+			"text": "Exploring the depths of my mind and jotting down random thoughts.",
+			"dateOfCreation": "2023-11-25T12:45:00.000Z",
+			"category": 2,
+			"userId": 1,
+			"color": 1
+		},
+		{
+			"id": 33,
+			"title": "Gratitude Journal",
+			"text": "Expressing gratitude for the simple joys and moments in life.",
+			"dateOfCreation": "2023-11-27T14:20:00.000Z",
+			"category": 1,
+			"userId": 1,
+			"color": 7
+		},
+		{
+			"id": 34,
+			"title": "Creative Ideas",
+			"text": "Brainstorming and documenting creative ideas for future projects.",
+			"dateOfCreation": "2023-11-29T09:10:00.000Z",
+			"category": 2,
+			"userId": 1,
+			"color": 5
+		},
+		{
+			"id": 35,
+			"title": "Reflections on Nature",
+			"text": "Connecting with nature and reflecting on its beauty and significance.",
+			"dateOfCreation": "2023-12-01T16:55:00.000Z",
+			"category": 1,
+			"userId": 1,
+			"color": 1
+		},
+		{
+			"id": 36,
+			"title": "Dimon note",
+			"text": "Dimon note text123",
+			"category": 1,
+			"userId": 4,
+			"dateOfCreation": "2023-12-05T11:56:46.008Z",
+			"color": 2
+		}
+	],
+	"users": [
+		{
+			"id": 1,
+			"username": "ishak",
+			"password": "123456"
+		},
+		{
+			"username": "vladg",
+			"password": "123123",
+			"id": 2
+		},
+		{
+			"username": "vladgeinf",
+			"password": "123123",
+			"id": 3
+		},
+		{
+			"password": "123123",
+			"username": "dimon",
+			"id": 4
+		}
+	]
 }

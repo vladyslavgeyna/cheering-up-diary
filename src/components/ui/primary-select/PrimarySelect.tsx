@@ -28,9 +28,7 @@ const PrimarySelect: FC<{
 	return (
 		<select
 			required={required}
-			// {...(!value ? { defaultValue: '' } : {})}
 			{...(isDefaultOptionNeeded ? { defaultValue: '' } : {})}
-			// defaultValue={''}
 			{...(value !== undefined ? { value: value } : {})}
 			onChange={onChange && (e => onChange(e.target.value))}
 			className={`${styles.select} ${className || ''}`}
@@ -41,7 +39,10 @@ const PrimarySelect: FC<{
 				</option>
 			)}
 			{items.map(item => (
-				<option key={item.key} value={item.key}>
+				<option
+					style={className === 'colored' ? { color: item.value } : {}}
+					key={item.key}
+					value={item.key}>
 					{item.value}
 				</option>
 			))}

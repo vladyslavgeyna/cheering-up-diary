@@ -40,10 +40,6 @@ const HomePage = () => {
 			category: selectedCategory,
 		})
 
-	const deleteNote = (dateOfCreation: Date) => {
-		console.log('Delete note')
-	}
-
 	if (isLoading || isNotesTotalCountLoading) {
 		return <Loader text='Loading...' />
 	}
@@ -80,7 +76,7 @@ const HomePage = () => {
 					</div>
 				</>
 			)}
-			<NotesList notes={data} onDelete={deleteNote} />
+			<NotesList notes={data} />
 			{doNotesExist && (
 				<div className={styles.paginationWrapper}>
 					<PaginationControl
