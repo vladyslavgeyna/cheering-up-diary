@@ -9,14 +9,11 @@ export const ThemeContext = createContext<{
 }>({ theme: 'light', toggleTheme: () => {} })
 
 const ThemeWrapper: FC<PropsWithChildren> = ({ children }) => {
-	const [theme, setTheme] = useState<ThemeType>(
-		(localStorage.getItem('theme') as ThemeType) || 'light',
-	)
+	const [theme, setTheme] = useState<ThemeType>('light')
 
 	const toggleTheme = () => {
 		setTheme(current => {
 			const themeToSet = current === 'light' ? 'dark' : 'light'
-			localStorage.setItem('theme', themeToSet)
 			return themeToSet
 		})
 	}
